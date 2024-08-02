@@ -138,6 +138,17 @@
         padding: 30px;
         border-radius: 15px;
       }
+      .blog-sidebar .list-unstyled li a {
+        color: var(--text-color);
+        text-decoration: none;
+      }
+
+      .blog-sidebar .list-unstyled li .post-date {
+        /* Target the .post-date span */
+        color: var(--text-color);
+        opacity: 0.7;
+        font-size: 0.8rem; /* Adjust font size if needed */
+      }
 
       .card {
         background-color: var(--card-bg);
@@ -159,7 +170,7 @@
       }
 
       .tag-cloud a {
-        background-color: #e9ecef;
+        background-color: #ced4da; /* Slightly darker gray for better contrast in light mode */
         color: var(--text-color);
         padding: 5px 10px;
         margin: 5px;
@@ -172,10 +183,16 @@
         background-color: #343a40; /* Darker background for dark mode */
         color: #f8f9fa; /* Light text for dark mode */
       }
+
       .blog-sidebar .list-unstyled li a {
-        /* Target links within the recent posts list */
-        color: var(--text-color); /* Use the text color variable */
-        text-decoration: none; /* Remove underline */
+        color: var(--text-color);
+        text-decoration: none;
+      }
+
+      .blog-sidebar .list-unstyled li small.text-muted {
+        /* Target <small> with text-muted */
+        color: var(--text-color);
+        opacity: 0.7;
       }
       .footer {
         background-color: #333;
@@ -574,20 +591,23 @@
                     <li class="mb-3">
                       <a href="#" class="text-decoration-none"
                         >The Benefits of Morning Workouts</a
-                      ><br />
-                      <small class="text-muted">May 1, 2024</small>
+                      >
+                      <br />
+                      <span class="post-date">May 1, 2024</span> <br />
                     </li>
                     <li class="mb-3">
                       <a href="#" class="text-decoration-none"
                         >Healthy Snacks for Pre and Post Workout</a
-                      ><br />
-                      <small class="text-muted">April 28, 2024</small>
+                      >
+                      <br />
+                      <span class="post-date">April 28, 2024</span> <br />
                     </li>
                     <li>
                       <a href="#" class="text-decoration-none"
                         >How to Choose the Right Running Shoes</a
-                      ><br />
-                      <small class="text-muted">April 25, 2024</small>
+                      >
+                      <br />
+                      <span class="post-date">April 25, 2024</span> <br />
                     </li>
                   </ul>
                 </div>
