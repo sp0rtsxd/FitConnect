@@ -1,508 +1,512 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Us - FitConnect</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      :root {
-        --primary-color: #4caf50;
-        --secondary-color: #2196f3;
-        --accent-color: #ffc107;
-        --text-color: #333333;
-        --bg-color: #ffffff;
-        --card-bg: #f8f9fa;
-        --link-color: #007bff;
-        --map-tile-url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
-      }
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Contact Us - FitConnect</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			:root {
+				--primary-color: #4caf50;
+				--secondary-color: #2196f3;
+				--accent-color: #ffc107;
+				--text-color: #333333;
+				--bg-color: #ffffff;
+				--card-bg: #f8f9fa;
+				--link-color: #007bff;
+				--map-tile-url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
+			}
 
-      .dark-mode {
-        --text-color: #e9e9e9;
-        --bg-color: #121212;
-        --card-bg: #212529;
-        --link-color: #2196f3;
-        --map-tile-url: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png";
-      }
+			.dark-mode {
+				--text-color: #e9e9e9;
+				--bg-color: #121212;
+				--card-bg: #212529;
+				--link-color: #2196f3;
+				--map-tile-url: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png";
+			}
 
-      body {
-        font-family: "Poppins", sans-serif;
-        background-color: var(--bg-color);
-        color: var(--text-color);
-        transition: background-color 0.3s ease, color 0.3s ease;
-      }
+			body {
+				font-family: "alexandria", sans-serif;
+				background-color: var(--bg-color);
+				color: var(--text-color);
+				transition: background-color 0.3s ease, color 0.3s ease;
+			}
 
-      .navbar {
-        background-color: var(--bg-color);
-        transition: background-color 0.3s ease;
-      }
+			.navbar {
+				background-color: var(--bg-color);
+				transition: background-color 0.3s ease;
+			}
 
-      .navbar-light .navbar-nav .nav-link {
-        color: var(--text-color);
-      }
+			.navbar-light .navbar-nav .nav-link {
+				color: var(--text-color);
+			}
 
-      .navbar-light .navbar-nav .nav-link:hover {
-        color: var(--link-color);
-      }
+			.navbar-light .navbar-nav .nav-link:hover {
+				color: var(--link-color);
+			}
 
-      .hero-section {
-        background: linear-gradient(135deg, #4caf50, #2196f3);
-        padding: 100px 0;
-        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-        position: relative;
-        overflow: hidden;
-      }
+			.hero-section {
+				background: linear-gradient(135deg, #4caf50, #2196f3);
+				padding: 100px 0;
+				clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+				position: relative;
+				overflow: hidden;
+			}
 
-      .hero-content {
-        position: relative;
-        z-index: 1;
-      }
+			.hero-content {
+				position: relative;
+				z-index: 1;
+			}
 
-      .hero-shapes {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-      }
+			.hero-shapes {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
 
-      .hero-shape {
-        position: absolute;
-        opacity: 0.1;
-        animation: float 15s infinite;
-      }
+			.hero-shape {
+				position: absolute;
+				opacity: 0.1;
+				animation: float 15s infinite;
+			}
 
-      .hero-shape:nth-child(1) {
-        top: 20%;
-        left: 10%;
-        width: 80px;
-        height: 80px;
-        background-color: #ffffff;
-        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-      }
+			.hero-shape:nth-child(1) {
+				top: 20%;
+				left: 10%;
+				width: 80px;
+				height: 80px;
+				background-color: #ffffff;
+				clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+			}
 
-      .hero-shape:nth-child(2) {
-        top: 60%;
-        right: 10%;
-        width: 120px;
-        height: 120px;
-        background-color: #ffffff;
-        border-radius: 50%;
-      }
+			.hero-shape:nth-child(2) {
+				top: 60%;
+				right: 10%;
+				width: 120px;
+				height: 120px;
+				background-color: #ffffff;
+				border-radius: 50%;
+			}
 
-      .hero-shape:nth-child(3) {
-        bottom: 10%;
-        left: 20%;
-        width: 60px;
-        height: 60px;
-        background-color: #ffffff;
-        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-      }
+			.hero-shape:nth-child(3) {
+				bottom: 10%;
+				left: 20%;
+				width: 60px;
+				height: 60px;
+				background-color: #ffffff;
+				clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+			}
 
-      @keyframes float {
-        0%,
-        100% {
-          transform: translate(0, 0) rotate(0deg);
-        }
-        25% {
-          transform: translate(10px, -10px) rotate(5deg);
-        }
-        50% {
-          transform: translate(20px, 0) rotate(-5deg);
-        }
-        75% {
-          transform: translate(-10px, 10px) rotate(3deg);
-        }
-      }
+			@keyframes float {
+				0%,
+				100% {
+					transform: translate(0, 0) rotate(0deg);
+				}
+				25% {
+					transform: translate(10px, -10px) rotate(5deg);
+				}
+				50% {
+					transform: translate(20px, 0) rotate(-5deg);
+				}
+				75% {
+					transform: translate(-10px, 10px) rotate(3deg);
+				}
+			}
 
-      .contact-section {
-        padding: 80px 0;
-        background-color: var(--bg-color);
-      }
+			.contact-section {
+				padding: 80px 0;
+				background-color: var(--bg-color);
+			}
 
-      .contact-form,
-      .contact-info {
-        background-color: var(--card-bg);
-        border-radius: 15px;
-        padding: 40px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-      }
+			.contact-form,
+			.contact-info {
+				background-color: var(--card-bg);
+				border-radius: 15px;
+				padding: 40px;
+				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+				transition: all 0.3s ease;
+			}
 
-      .contact-form:hover,
-      .contact-info:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-      }
+			.contact-form:hover,
+			.contact-info:hover {
+				transform: translateY(-10px);
+				box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+			}
 
-      .contact-form h2,
-      .contact-info h2 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 30px;
-        color: var(--text-color);
-      }
+			.contact-form h2,
+			.contact-info h2 {
+				font-size: 2.5rem;
+				font-weight: 700;
+				margin-bottom: 30px;
+				color: var(--text-color);
+			}
 
-      .form-control {
-        background-color: var(--bg-color);
-        border-color: #ced4da;
-        color: var(--text-color);
-      }
+			.form-control {
+				background-color: var(--bg-color);
+				border-color: #ced4da;
+				color: var(--text-color);
+			}
 
-      .form-control:focus {
-        background-color: var(--bg-color);
-        color: var(--text-color);
-        border-color: var(--link-color);
-        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-      }
+			.form-control:focus {
+				background-color: var(--bg-color);
+				color: var(--text-color);
+				border-color: var(--link-color);
+				box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+			}
 
-      .btn-primary {
-        background-color: var(--primary-color);
-        border: none;
-        padding: 12px 30px;
-        font-weight: 600;
-        border-radius: 30px;
-        transition: all 0.3s ease;
-      }
+			.btn-primary {
+				background-color: var(--primary-color);
+				border: none;
+				padding: 12px 30px;
+				font-weight: 600;
+				border-radius: 30px;
+				transition: all 0.3s ease;
+			}
 
-      .btn-primary:hover {
-        background-color: var(--accent-color);
-        color: white;
-      }
+			.btn-primary:hover {
+				background-color: var(--accent-color);
+				color: white;
+			}
 
-      .contact-info ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
+			.contact-info ul {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
 
-      .contact-info li {
-        margin-bottom: 20px;
-      }
+			.contact-info li {
+				margin-bottom: 20px;
+			}
 
-      .contact-info i {
-        font-size: 1.5rem;
-        color: var(--primary-color);
-        margin-right: 15px;
-      }
+			.contact-info i {
+				font-size: 1.5rem;
+				color: var(--primary-color);
+				margin-right: 15px;
+			}
 
-      #map {
-        height: 400px;
-        border-radius: 15px;
-        overflow: hidden;
-        margin-top: 40px;
-      }
+			#map {
+				height: 400px;
+				border-radius: 15px;
+				overflow: hidden;
+				margin-top: 40px;
+			}
 
-      .theme-switch-wrapper {
-        display: flex;
-        align-items: center;
-      }
+			.theme-switch-wrapper {
+				display: flex;
+				align-items: center;
+			}
 
-      .theme-switch {
-        display: inline-block;
-        height: 34px;
-        position: relative;
-        width: 60px;
-      }
+			.theme-switch {
+				display: inline-block;
+				height: 34px;
+				position: relative;
+				width: 60px;
+			}
 
-      .theme-switch input {
-        display: none;
-      }
+			.theme-switch input {
+				display: none;
+			}
 
-      .slider {
-        background-color: #ccc;
-        bottom: 0;
-        cursor: pointer;
-        left: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
-        transition: 0.4s;
-        border-radius: 34px;
-      }
+			.slider {
+				background-color: #ccc;
+				bottom: 0;
+				cursor: pointer;
+				left: 0;
+				position: absolute;
+				right: 0;
+				top: 0;
+				transition: 0.4s;
+				border-radius: 34px;
+			}
 
-      .slider:before {
-        background-color: #fff;
-        bottom: 4px;
-        content: "";
-        height: 26px;
-        left: 4px;
-        position: absolute;
-        transition: 0.4s;
-        width: 26px;
-        border-radius: 50%;
-      }
+			.slider:before {
+				background-color: #fff;
+				bottom: 4px;
+				content: "";
+				height: 26px;
+				left: 4px;
+				position: absolute;
+				transition: 0.4s;
+				width: 26px;
+				border-radius: 50%;
+			}
 
-      input:checked + .slider {
-        background-color: #2196f3;
-      }
+			input:checked + .slider {
+				background-color: #2196f3;
+			}
 
-      input:checked + .slider:before {
-        transform: translateX(26px);
-      }
+			input:checked + .slider:before {
+				transform: translateX(26px);
+			}
 
-      .slider .icon {
-        color: #f39c12;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        transition: opacity 0.3s ease;
-        font-size: 18px;
-      }
+			.slider .icon {
+				color: #f39c12;
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				transition: opacity 0.3s ease;
+				font-size: 18px;
+			}
 
-      .slider .sun {
-        left: 6px;
-      }
+			.slider .sun {
+				left: 6px;
+			}
 
-      .slider .moon {
-        right: 6px;
-        opacity: 0;
-      }
+			.slider .moon {
+				right: 6px;
+				opacity: 0;
+			}
 
-      input:checked + .slider .sun {
-        opacity: 0;
-      }
+			input:checked + .slider .sun {
+				opacity: 0;
+			}
 
-      input:checked + .slider .moon {
-        opacity: 1;
-      }
+			input:checked + .slider .moon {
+				opacity: 1;
+			}
 
-      /* Dark Mode Styles for Leaflet */
-      .dark-mode .leaflet-control-zoom a,
-      .dark-mode .leaflet-control-zoom a:hover {
-        background-color: var(--card-bg) !important;
-        color: var(--text-color) !important;
-      }
+			/* Dark Mode Styles for Leaflet */
+			.dark-mode .leaflet-control-zoom a,
+			.dark-mode .leaflet-control-zoom a:hover {
+				background-color: var(--card-bg) !important;
+				color: var(--text-color) !important;
+			}
 
-      .dark-mode .leaflet-popup-content-wrapper,
-      .dark-mode .leaflet-popup-tip {
-        background-color: var(--card-bg) !important;
-        color: var(--text-color) !important;
-      }
+			.dark-mode .leaflet-popup-content-wrapper,
+			.dark-mode .leaflet-popup-tip {
+				background-color: var(--card-bg) !important;
+				color: var(--text-color) !important;
+			}
 
-      .dark-mode .leaflet-control-attribution a {
-        color: var(--text-color) !important;
-      }
-    </style>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="index.html">
-          <img
-            src="/api/placeholder/40/40"
-            alt="FitConnect Logo"
-            width="40"
-            height="40"
-            class="d-inline-block align-top me-2"
-          />
-          FitConnect
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="pricing.html">Prices</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="blog.html">Blog</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="contact.html">Contact</a>
-            </li>
-            <li class="nav-item">
-              <div class="theme-switch-wrapper">
-                <label class="theme-switch" for="checkbox">
-                  <input type="checkbox" id="checkbox" />
-                  <div class="slider">
-                    <i class="fas fa-sun icon sun"></i>
-                    <i class="fas fa-moon icon moon"></i>
-                  </div>
-                </label>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+			.dark-mode .leaflet-control-attribution a {
+				color: var(--text-color) !important;
+			}
+		</style>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+			<div class="container">
+				<a class="navbar-brand" href="index.html">
+					<img
+						src="/api/placeholder/40/40"
+						alt="FitConnect Logo"
+						width="40"
+						height="40"
+						class="d-inline-block align-top me-2"
+					/>
+					FitConnect
+				</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarNav"
+					aria-controls="navbarNav"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav ms-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="index.html">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="pricing.html">Prices</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="about.html">About</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="blog.html">Blog</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="contact.html">Contact</a>
+						</li>
+						<li class="nav-item">
+							<div class="theme-switch-wrapper">
+								<label class="theme-switch" for="checkbox">
+									<input type="checkbox" id="checkbox" />
+									<div class="slider">
+										<i class="fas fa-sun icon sun"></i>
+										<i class="fas fa-moon icon moon"></i>
+									</div>
+								</label>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
 
-    <header class="hero-section text-white text-center">
-      <div class="hero-content">
-        <h1 class="display-4 mb-4">Get in Touch</h1>
-        <p class="lead">
-          We'd love to hear from you! Whether you have a question, feedback, or
-          just want to say hello, please don't hesitate to reach out.
-        </p>
-      </div>
-      <div class="hero-shapes">
-        <div class="hero-shape"></div>
-        <div class="hero-shape"></div>
-        <div class="hero-shape"></div>
-      </div>
-    </header>
+		<header class="hero-section text-white text-center">
+			<div class="hero-content">
+				<h1 class="display-4 mb-4">Get in Touch</h1>
+				<p class="lead">
+					We'd love to hear from you! Whether you have a question, feedback, or
+					just want to say hello, please don't hesitate to reach out.
+				</p>
+			</div>
+			<div class="hero-shapes">
+				<div class="hero-shape"></div>
+				<div class="hero-shape"></div>
+				<div class="hero-shape"></div>
+			</div>
+		</header>
 
-    <section class="contact-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 mb-4">
-            <div class="contact-form">
-              <h2>Send Us a Message</h2>
-              <form id="contactForm">
-                <div class="mb-3">
-                  <label for="name" class="form-label">Your Name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="name"
-                    placeholder="Enter your name"
-                    required
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="email" class="form-label">Email Address</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="email"
-                    placeholder="Enter your email"
-                    required
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="message" class="form-label">Message</label>
-                  <textarea
-                    class="form-control"
-                    id="message"
-                    rows="5"
-                    placeholder="Enter your message"
-                    required
-                  ></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">
-                  Send Message
-                </button>
-              </form>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="contact-info">
-              <h2>Contact Information</h2>
-              <ul>
-                <li>
-                  <i class="fas fa-map-marker-alt"></i>
-                  <span>
-                    123 Fitness Street, Healthy City, FC 12345, United States
-                  </span>
-                </li>
-                <li>
-                  <i class="fas fa-phone-alt"></i>
-                  <span>(123) 456-7890</span>
-                </li>
-                <li>
-                  <i class="fas fa-envelope"></i>
-                  <span>info@fitconnect.com</span>
-                </li>
-              </ul>
-            </div>
-            <div id="map"></div>
-          </div>
-        </div>
-      </div>
-    </section>
+		<section class="contact-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 mb-4">
+						<div class="contact-form">
+							<h2>Send Us a Message</h2>
+							<form id="contactForm">
+								<div class="mb-3">
+									<label for="name" class="form-label">Your Name</label>
+									<input
+										type="text"
+										class="form-control"
+										id="name"
+										placeholder="Enter your name"
+										required
+									/>
+								</div>
+								<div class="mb-3">
+									<label for="email" class="form-label">Email Address</label>
+									<input
+										type="email"
+										class="form-control"
+										id="email"
+										placeholder="Enter your email"
+										required
+									/>
+								</div>
+								<div class="mb-3">
+									<label for="message" class="form-label">Message</label>
+									<textarea
+										class="form-control"
+										id="message"
+										rows="5"
+										placeholder="Enter your message"
+										required
+									></textarea>
+								</div>
+								<button type="submit" class="btn btn-primary">
+									Send Message
+								</button>
+							</form>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="contact-info">
+							<h2>Contact Information</h2>
+							<ul>
+								<li>
+									<i class="fas fa-map-marker-alt"></i>
+									<span>
+										123 Fitness Street, Healthy City, FC 12345, United States
+									</span>
+								</li>
+								<li>
+									<i class="fas fa-phone-alt"></i>
+									<span>(123) 456-7890</span>
+								</li>
+								<li>
+									<i class="fas fa-envelope"></i>
+									<span>info@fitconnect.com</span>
+								</li>
+							</ul>
+						</div>
+						<div id="map"></div>
+					</div>
+				</div>
+			</div>
+		</section>
 
-    <footer class="bg-dark text-white py-4">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 text-center text-md-start">
-            <p>© 2024 FitConnect. All rights reserved.</p>
-          </div>
-          <div class="col-md-6 text-center text-md-end">
-            <a href="terms.html" class="text-white me-3">Terms of Service</a>
-            <a href="privacy.html" class="text-white">Privacy Policy</a>
-          </div>
-        </div>
-      </div>
-    </footer>
+		<footer class="bg-dark text-white py-4">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 text-center text-md-start">
+						<p>© 2024 FitConnect. All rights reserved.</p>
+					</div>
+					<div class="col-md-6 text-center text-md-end">
+						<a href="terms.html" class="text-white me-3">Terms of Service</a>
+						<a href="privacy.html" class="text-white">Privacy Policy</a>
+					</div>
+				</div>
+			</div>
+		</footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script>
-      // Theme toggle
-      const toggleSwitch = document.querySelector(
-        '.theme-switch input[type="checkbox"]'
-      );
-      const currentTheme = localStorage.getItem("theme");
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+		<script>
+			// Theme toggle
+			const toggleSwitch = document.querySelector(
+				'.theme-switch input[type="checkbox"]'
+			);
+			const currentTheme = localStorage.getItem("theme");
 
-      if (currentTheme) {
-        document.documentElement.setAttribute("data-theme", currentTheme);
-        if (currentTheme === "dark") {
-          toggleSwitch.checked = true;
-          document.body.classList.add("dark-mode");
-        }
-      }
+			if (currentTheme) {
+				document.documentElement.setAttribute("data-theme", currentTheme);
+				if (currentTheme === "dark") {
+					toggleSwitch.checked = true;
+					document.body.classList.add("dark-mode");
+				}
+			}
 
-      function switchTheme(e) {
-        if (e.target.checked) {
-          document.documentElement.setAttribute("data-theme", "dark");
-          document.body.classList.add("dark-mode");
-          localStorage.setItem("theme", "dark");
-        } else {
-          document.documentElement.setAttribute("data-theme", "light");
-          document.body.classList.remove("dark-mode");
-          localStorage.setItem("theme", "light");
-        }
-      }
+			function switchTheme(e) {
+				if (e.target.checked) {
+					document.documentElement.setAttribute("data-theme", "dark");
+					document.body.classList.add("dark-mode");
+					localStorage.setItem("theme", "dark");
+				} else {
+					document.documentElement.setAttribute("data-theme", "light");
+					document.body.classList.remove("dark-mode");
+					localStorage.setItem("theme", "light");
+				}
+			}
 
-      toggleSwitch.addEventListener("change", switchTheme, false);
+			toggleSwitch.addEventListener("change", switchTheme, false);
 
-      // Leaflet Map (Replace with your map initialization code)
-      var map = L.map("map").setView([40.7128, -74.006], 13); // Replace with your desired coordinates
+			// Leaflet Map (Replace with your map initialization code)
+			var map = L.map("map").setView([40.7128, -74.006], 13); // Replace with your desired coordinates
 
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution:
-          '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      }).addTo(map);
+			L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+				attribution:
+					'© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+			}).addTo(map);
 
-      var marker = L.marker([40.7128, -74.006]).addTo(map); // Replace with your desired coordinates
-      marker.bindPopup("<b>FitConnect</b><br>123 Fitness Street").openPopup();
+			var marker = L.marker([40.7128, -74.006]).addTo(map); // Replace with your desired coordinates
+			marker.bindPopup("<b>FitConnect</b><br>123 Fitness Street").openPopup();
 
-      // Form submission (Local handling - replace with your logic)
-      document
-        .getElementById("contactForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-          // Add your logic here to handle the form data locally
-          // For example, you can display a thank you message or store the data
-          alert("Thank you for your message! We will get back to you soon.");
-          this.reset();
-        });
-    </script>
-  </body>
+			// Form submission (Local handling - replace with your logic)
+			document
+				.getElementById("contactForm")
+				.addEventListener("submit", function (e) {
+					e.preventDefault();
+					// Add your logic here to handle the form data locally
+					// For example, you can display a thank you message or store the data
+					alert("Thank you for your message! We will get back to you soon.");
+					this.reset();
+				});
+		</script>
+	</body>
 </html>
