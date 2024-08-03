@@ -47,7 +47,7 @@
 
       /* Navigation Bar Styles */
       .navbar {
-        background: linear-gradient(135deg, #4caf50, #2196f3);
+        background-color: var(--bg-color); /* Consistent background */
         position: fixed;
         top: 0;
         left: 0;
@@ -59,15 +59,15 @@
       }
 
       .navbar-light .navbar-nav .nav-link {
-        color: white;
+        color: var(--text-color); /* Use text color variable */
       }
 
       .navbar-light .navbar-nav .nav-link:hover {
-        color: #f8f9fa;
+        color: var(--link-color); /* Use link color variable */
       }
 
       .navbar-brand {
-        color: white !important;
+        color: var(--text-color) !important; /* Use text color variable */
       }
 
       .hero-section {
@@ -352,13 +352,9 @@
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
       <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="index.html">
-          <img
-            src="logo.png"
-            alt="FitConnect Logo"
-            width="40"
-            height="32"
-            class="d-inline-block align-top me-2"
-          />
+          <img src="logo.png" /* Replace with your actual logo file */
+          alt="FitConnect Logo" width="40" height="32" class="d-inline-block
+          align-top me-2" />
           <span class="font-weight-bold">FitConnect</span>
         </a>
         <button
@@ -386,7 +382,10 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="terms.html">Terms</a>
+              <a class="nav-link" href="pricing.html">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
             </li>
             <li class="nav-item">
               <div class="theme-switch-wrapper">

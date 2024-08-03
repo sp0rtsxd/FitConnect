@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FitConnect - Terms and Conditions</title>
+    <title>FitConnect - Terms of Service</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -12,163 +12,103 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
     <style>
       :root {
-        --primary-color: #3498db;
-        --secondary-color: #2ecc71;
-        --text-color: #333;
-        --bg-color: #f8f9fa;
-        --card-bg: #ffffff;
+        --primary-color: #4caf50;
+        --secondary-color: #2196f3;
+        --accent-color: #ffc107;
+        --text-color: #333333;
+        --bg-color: #ffffff;
+        --card-bg: #f8f9fa;
+        --link-color: #007bff;
+      }
+
+      .dark-mode {
+        --text-color: #e9e9e9;
+        --bg-color: #121212;
+        --card-bg: #212529;
+        --link-color: #2196f3;
       }
 
       body {
-        font-family: "Arial", sans-serif;
+        font-family: "Poppins", sans-serif;
+        background-color: var(--bg-color);
         color: var(--text-color);
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      .navbar {
         background-color: var(--bg-color);
         transition: background-color 0.3s ease;
       }
 
-      .navbar {
-        background-color: var(--primary-color);
-        transition: background-color 0.3s ease;
+      .navbar-light .navbar-nav .nav-link {
+        color: var(--text-color);
+      }
+
+      .navbar-light .navbar-nav .nav-link:hover {
+        color: var(--link-color);
       }
 
       .hero-section {
-        background: linear-gradient(
-          135deg,
-          var(--primary-color),
-          var(--secondary-color)
-        );
+        background: linear-gradient(135deg, #4caf50, #2196f3);
         padding: 100px 0;
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
         position: relative;
         overflow: hidden;
       }
 
-      .hero-shape {
-        position: absolute;
-        background-color: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-        animation: float 6s ease-in-out infinite;
-      }
-
-      .hero-shape:nth-child(1) {
-        width: 300px;
-        height: 300px;
-        top: -100px;
-        left: -100px;
-        animation-delay: 0s;
-      }
-
-      .hero-shape:nth-child(2) {
-        width: 200px;
-        height: 200px;
-        bottom: -50px;
-        right: -50px;
-        animation-delay: 2s;
-      }
-
-      .hero-shape:nth-child(3) {
-        width: 150px;
-        height: 150px;
-        bottom: 50px;
-        left: 50%;
-        transform: translateX(-50%);
-        animation-delay: 4s;
-      }
-
-      @keyframes float {
-        0% {
-          transform: translateY(0px);
-        }
-        50% {
-          transform: translateY(-20px);
-        }
-        100% {
-          transform: translateY(0px);
-        }
-      }
-
-      .section-title {
+      .hero-content {
         position: relative;
-        display: inline-block;
-        margin-bottom: 30px;
+        z-index: 1;
       }
 
-      .section-title::after {
-        content: "";
-        position: absolute;
-        bottom: -10px;
-        left: 0;
-        width: 50px;
-        height: 3px;
-        background-color: var(--primary-color);
+      .terms-content {
+        padding: 50px 0;
       }
 
-      .terms-card {
-        border: none;
+      .terms-section {
+        background-color: var(--card-bg);
         border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        background-color: var(--card-bg);
-        height: 100%;
-      }
-
-      .terms-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-      }
-
-      .terms-icon {
-        font-size: 2.5rem;
-        color: var(--primary-color);
-        margin-bottom: 20px;
-        transition: transform 0.3s ease;
-      }
-
-      .terms-card:hover .terms-icon {
-        transform: scale(1.1);
-      }
-
-      .accordion-item {
-        border: none;
-        margin-bottom: 10px;
-      }
-
-      .accordion-button {
-        background-color: var(--card-bg);
-        border-radius: 10px;
+        padding: 30px;
+        margin-bottom: 30px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease;
       }
 
-      .accordion-button:not(.collapsed) {
-        background-color: var(--primary-color);
-        color: #ffffff;
+      .terms-section:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
       }
 
-      .accordion-body {
-        background-color: var(--card-bg);
-        border-radius: 0 0 10px 10px;
+      .dark-mode .terms-section:hover {
+        box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
       }
 
-      .scroll-to-top {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        display: none;
-        width: 40px;
-        height: 40px;
-        line-height: 40px;
-        text-align: center;
-        background-color: var(--primary-color);
-        color: #fff;
-        border-radius: 50%;
-        z-index: 1000;
-        transition: background-color 0.3s ease;
+      .section-icon {
+        font-size: 48px;
+        color: var(--primary-color);
+        margin-bottom: 20px;
       }
 
-      .scroll-to-top:hover {
-        background-color: var(--secondary-color);
+      .section-title {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+
+      .section-description {
+        font-size: 16px;
+        color: var(--text-color);
+        opacity: 0.8;
       }
 
       .theme-switch-wrapper {
@@ -212,41 +152,69 @@
       }
 
       input:checked + .slider {
-        background-color: var(--primary-color);
+        background-color: #2196f3;
       }
 
       input:checked + .slider:before {
         transform: translateX(26px);
       }
 
-      .dark-mode {
-        --text-color: #f8f9fa;
-        --bg-color: #333;
-        --card-bg: #2c3e50;
+      .slider .icon {
+        color: #f39c12;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: opacity 0.3s ease;
+        font-size: 18px;
       }
 
-      .dark-mode .navbar {
-        background-color: #2c3e50;
+      .slider .sun {
+        left: 6px;
       }
 
-      .dark-mode .terms-card {
-        background-color: var(--card-bg);
+      .slider .moon {
+        right: 6px;
+        opacity: 0;
+      }
+
+      input:checked + .slider .sun {
+        opacity: 0;
+      }
+
+      input:checked + .slider .moon {
+        opacity: 1;
+      }
+
+      /* Styles for sidebar navigation */
+      .terms-nav {
+        position: sticky;
+        top: 80px; /* Adjust as needed */
+        height: calc(100vh - 80px);
+        overflow-y: auto;
+      }
+
+      .terms-nav .nav-link {
         color: var(--text-color);
       }
 
-      .dark-mode .accordion-button {
-        background-color: var(--card-bg);
-        color: var(--text-color);
+      .terms-nav .nav-link:hover {
+        color: var(--link-color);
       }
 
-      .dark-mode .accordion-body {
-        background-color: var(--card-bg);
-        color: var(--text-color);
+      .terms-nav .nav-link.active {
+        font-weight: bold;
+      }
+
+      @media (max-width: 991px) {
+        .terms-nav {
+          position: static;
+          height: auto;
+        }
       }
     </style>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
       <div class="container">
         <a class="navbar-brand" href="#">
           <img
@@ -275,10 +243,10 @@
               <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#services">Services</a>
+              <a class="nav-link" href="about.html">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
+              <a class="nav-link" href="pricing.html">Pricing</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="blog.html">Blog</a>
@@ -287,10 +255,13 @@
               <a class="nav-link" href="contact.html">Contact</a>
             </li>
             <li class="nav-item">
-              <div class="theme-switch-wrapper ms-3">
+              <div class="theme-switch-wrapper">
                 <label class="theme-switch" for="checkbox">
                   <input type="checkbox" id="checkbox" />
-                  <div class="slider"></div>
+                  <div class="slider">
+                    <i class="fas fa-sun icon sun"></i>
+                    <i class="fas fa-moon icon moon"></i>
+                  </div>
                 </label>
               </div>
             </li>
@@ -299,241 +270,165 @@
       </div>
     </nav>
 
-    <section class="hero-section text-white text-center">
-      <div class="container">
-        <div class="hero-content">
-          <h1 class="display-4 mb-4" data-aos="fade-up">
-            Terms and Conditions
-          </h1>
-          <p class="lead" data-aos="fade-up" data-aos-delay="200">
-            Understand our policies to make the most of your FitConnect
-            experience
-          </p>
-        </div>
+    <header class="hero-section text-white text-center">
+      <div class="hero-content">
+        <h1 class="display-4 mb-4" data-aos="fade-up">Terms of Service</h1>
+        <p class="lead mb-5" data-aos="fade-up" data-aos-delay="100">
+          Understanding your rights and responsibilities when using FitConnect.
+        </p>
       </div>
-      <div class="hero-shapes">
-        <div class="hero-shape"></div>
-        <div class="hero-shape"></div>
-        <div class="hero-shape"></div>
-      </div>
-    </section>
+    </header>
 
-    <section class="terms-section py-5">
+    <section class="terms-content">
       <div class="container">
-        <h2 class="section-title text-center mb-5" data-aos="fade-up">
-          Our Terms of Service
-        </h2>
         <div class="row">
-          <div class="col-md-4 mb-4" data-aos="fade-up">
-            <div class="card terms-card h-100">
-              <div class="card-body text-center">
-                <i class="fas fa-user-shield terms-icon"></i>
-                <h3 class="card-title">User Agreement</h3>
-                <p class="card-text">
-                  By using FitConnect, you agree to abide by our terms and
-                  conditions, ensuring a safe and respectful environment for all
-                  users.
-                </p>
-              </div>
+          <div class="col-lg-3">
+            <div class="terms-nav">
+              <nav id="terms-navbar" class="nav flex-column">
+                <a class="nav-link active" href="#acceptance"
+                  >Acceptance of Terms</a
+                >
+                <a class="nav-link" href="#services">Description of Services</a>
+                <a class="nav-link" href="#privacy">Privacy Policy</a>
+                <a class="nav-link" href="#conduct">User Conduct</a>
+                <a class="nav-link" href="#content">User-Generated Content</a>
+                <a class="nav-link" href="#termination">Account Termination</a>
+                <a class="nav-link" href="#disclaimers">Disclaimers</a>
+                <a class="nav-link" href="#liability"
+                  >Limitation of Liability</a
+                >
+                <a class="nav-link" href="#changes">Changes to Terms</a>
+                <a class="nav-link" href="#contact">Contact Information</a>
+              </nav>
             </div>
           </div>
-          <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="card terms-card h-100">
-              <div class="card-body text-center">
-                <i class="fas fa-lock terms-icon"></i>
-                <h3 class="card-title">Privacy Policy</h3>
-                <p class="card-text">
-                  We are committed to protecting your personal information and
-                  ensuring your data is handled securely and responsibly.
-                </p>
+          <div class="col-lg-9">
+            <section id="acceptance" class="terms-section" data-aos="fade-up">
+              <div class="section-icon">
+                <i class="fas fa-handshake"></i>
               </div>
-            </div>
-          </div>
-          <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="card terms-card h-100">
-              <div class="card-body text-center">
-                <i class="fas fa-handshake terms-icon"></i>
-                <h3 class="card-title">Service Agreement</h3>
-                <p class="card-text">
-                  Our service agreement outlines the responsibilities of
-                  FitConnect and our users to maintain a high-quality fitness
-                  platform.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+              <h2 class="section-title">1. Acceptance of Terms</h2>
+              <p class="section-description">
+                By accessing or using FitConnect's services, you agree to be
+                bound by these Terms of Service. If you disagree with any part
+                of the terms, you may not access the service.
+              </p>
+            </section>
 
-    <section class="terms-details py-5">
-      <div class="container">
-        <h2 class="section-title text-center mb-5" data-aos="fade-up">
-          Detailed Terms
-        </h2>
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <div class="accordion" id="termsAccordion">
-              <div class="accordion-item" data-aos="fade-up">
-                <h2 class="accordion-header" id="headingOne">
-                  <button
-                    class="accordion-button"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseOne"
-                    aria-expanded="true"
-                    aria-controls="collapseOne"
-                  >
-                    1. Acceptance of Terms
-                  </button>
-                </h2>
-                <div
-                  id="collapseOne"
-                  class="accordion-collapse collapse show"
-                  aria-labelledby="headingOne"
-                  data-bs-parent="#termsAccordion"
-                >
-                  <div class="accordion-body">
-                    <p>
-                      By accessing or using FitConnect, you agree to be bound by
-                      these Terms and Conditions. If you disagree with any part
-                      of the terms, you may not access the service.
-                    </p>
-                  </div>
-                </div>
+            <section id="services" class="terms-section" data-aos="fade-up">
+              <div class="section-icon">
+                <i class="fas fa-dumbbell"></i>
               </div>
-              <div
-                class="accordion-item"
-                data-aos="fade-up"
-                data-aos-delay="100"
-              >
-                <h2 class="accordion-header" id="headingTwo">
-                  <button
-                    class="accordion-button collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseTwo"
-                    aria-expanded="false"
-                    aria-controls="collapseTwo"
-                  >
-                    2. User Responsibilities
-                  </button>
-                </h2>
-                <div
-                  id="collapseTwo"
-                  class="accordion-collapse collapse"
-                  aria-labelledby="headingTwo"
-                  data-bs-parent="#termsAccordion"
-                >
-                  <div class="accordion-body">
-                    <p>
-                      Users are responsible for maintaining the confidentiality
-                      of their account and password. Users agree to accept
-                      responsibility for all activities that occur under their
-                      account or password.
-                    </p>
-                  </div>
-                </div>
+              <h2 class="section-title">2. Description of Services</h2>
+              <p class="section-description">
+                FitConnect provides a platform for fitness enthusiasts to
+                connect with trainers, access workout plans, and track their
+                fitness progress. Our services may change over time, and we
+                reserve the right to modify or discontinue any part of our
+                offerings.
+              </p>
+            </section>
+
+            <section id="privacy" class="terms-section" data-aos="fade-up">
+              <div class="section-icon">
+                <i class="fas fa-user-shield"></i>
               </div>
-              <div
-                class="accordion-item"
-                data-aos="fade-up"
-                data-aos-delay="200"
-              >
-                <h2 class="accordion-header" id="headingThree">
-                  <button
-                    class="accordion-button collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseThree"
-                    aria-expanded="false"
-                    aria-controls="collapseThree"
-                  >
-                    3. Intellectual Property
-                  </button>
-                </h2>
-                <div
-                  id="collapseThree"
-                  class="accordion-collapse collapse"
-                  aria-labelledby="headingThree"
-                  data-bs-parent="#termsAccordion"
-                >
-                  <div class="accordion-body">
-                    <p>
-                      The content, features, and functionality of FitConnect are
-                      owned by FitConnect and are protected by international
-                      copyright, trademark, patent, trade secret, and other
-                      intellectual property laws.
-                    </p>
-                  </div>
-                </div>
+              <h2 class="section-title">3. Privacy Policy</h2>
+              <p class="section-description">
+                Your privacy is important to us. Please review our
+                <a href="privacy.html">Privacy Policy</a> to understand how we
+                collect, use, and share your personal information.
+              </p>
+            </section>
+
+            <section id="conduct" class="terms-section" data-aos="fade-up">
+              <div class="section-icon">
+                <i class="fas fa-user-check"></i>
               </div>
-              <div
-                class="accordion-item"
-                data-aos="fade-up"
-                data-aos-delay="300"
-              >
-                <h2 class="accordion-header" id="headingFour">
-                  <button
-                    class="accordion-button collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseFour"
-                    aria-expanded="false"
-                    aria-controls="collapseFour"
-                  >
-                    4. Data Usage and Privacy
-                  </button>
-                </h2>
-                <div
-                  id="collapseFour"
-                  class="accordion-collapse collapse"
-                  aria-labelledby="headingFour"
-                  data-bs-parent="#termsAccordion"
-                >
-                  <div class="accordion-body">
-                    <p>
-                      FitConnect collects and uses personal data as outlined in
-                      our Privacy Policy. By using our service, you consent to
-                      such processing and you warrant that all data provided by
-                      you is accurate.
-                    </p>
-                  </div>
-                </div>
+              <h2 class="section-title">4. User Conduct</h2>
+              <p class="section-description">
+                Users are expected to behave responsibly and respectfully while
+                using FitConnect. Any form of harassment, hate speech, or
+                illegal activities is strictly prohibited and may result in
+                account termination.
+              </p>
+            </section>
+
+            <section id="content" class="terms-section" data-aos="fade-up">
+              <div class="section-icon">
+                <i class="fas fa-file-alt"></i>
               </div>
-              <div
-                class="accordion-item"
-                data-aos="fade-up"
-                data-aos-delay="400"
-              >
-                <h2 class="accordion-header" id="headingFive">
-                  <button
-                    class="accordion-button collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseFive"
-                    aria-expanded="false"
-                    aria-controls="collapseFive"
-                  >
-                    5. Cancellation and Termination
-                  </button>
-                </h2>
-                <div
-                  id="collapseFive"
-                  class="accordion-collapse collapse"
-                  aria-labelledby="headingFive"
-                  data-bs-parent="#termsAccordion"
-                >
-                  <div class="accordion-body">
-                    <p>
-                      You can cancel your account at any time by contacting our
-                      support team. Upon cancellation, your right to use the
-                      service will immediately cease.
-                    </p>
-                  </div>
-                </div>
+              <h2 class="section-title">5. User-Generated Content</h2>
+              <p class="section-description">
+                By posting content on FitConnect, you grant us a non-exclusive,
+                worldwide, royalty-free license to use, modify, publicly
+                perform, publicly display, reproduce, and distribute such
+                content on our platforms.
+              </p>
+            </section>
+
+            <section id="termination" class="terms-section" data-aos="fade-up">
+              <div class="section-icon">
+                <i class="fas fa-user-times"></i>
               </div>
-            </div>
+              <h2 class="section-title">6. Account Termination</h2>
+              <p class="section-description">
+                We reserve the right to terminate or suspend access to our
+                service immediately, without prior notice or liability, for any
+                reason whatsoever, including without limitation if you breach
+                the Terms.
+              </p>
+            </section>
+
+            <section id="disclaimers" class="terms-section" data-aos="fade-up">
+              <div class="section-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+              </div>
+              <h2 class="section-title">7. Disclaimers</h2>
+              <p class="section-description">
+                FitConnect is provided "as is" without any warranties, expressed
+                or implied. We do not guarantee that the service will be
+                uninterrupted, secure, or error-free.
+              </p>
+            </section>
+
+            <section id="liability" class="terms-section" data-aos="fade-up">
+              <div class="section-icon">
+                <i class="fas fa-balance-scale"></i>
+              </div>
+              <h2 class="section-title">8. Limitation of Liability</h2>
+              <p class="section-description">
+                In no event shall FitConnect, its directors, employees,
+                partners, agents, suppliers, or affiliates be liable for any
+                indirect, incidental, special, consequential, or punitive
+                damages.
+              </p>
+            </section>
+
+            <section id="changes" class="terms-section" data-aos="fade-up">
+              <div class="section-icon">
+                <i class="fas fa-sync-alt"></i>
+              </div>
+              <h2 class="section-title">9. Changes to Terms</h2>
+              <p class="section-description">
+                We reserve the right to modify these terms at any time. We will
+                notify users of any significant changes. Your continued use of
+                FitConnect after such modifications constitutes your acceptance
+                of the new terms.
+              </p>
+            </section>
+
+            <section id="contact" class="terms-section" data-aos="fade-up">
+              <div class="section-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <h2 class="section-title">10. Contact Information</h2>
+              <p class="section-description">
+                If you have any questions about these Terms, please contact us
+                at
+                <a href="mailto:legal@fitconnect.com">legal@fitconnect.com</a>.
+              </p>
+            </section>
           </div>
         </div>
       </div>
@@ -574,34 +469,30 @@
           <div class="col-md-4">
             <h5>Contact Us</h5>
             <address>
-              123 Fitness Street, Healthy City, FC 12345<br />
-              <a href="tel:+11234567890" class="text-white">(123) 456-7890</a
-              ><br />
-              <a href="mailto:info@fitconnect.com" class="text-white"
-                >info@fitconnect.com</a
-              >
+              <p>
+                <i class="fas fa-map-marker-alt me-2"></i> 123 Fitness Street,
+                Healthy City, FC 12345
+              </p>
+              <p><i class="fas fa-phone me-2"></i> (123) 456-7890</p>
+              <p><i class="fas fa-envelope me-2"></i> info@fitconnect.com</p>
             </address>
           </div>
         </div>
-        <hr />
+        <hr class="my-4" />
         <div class="row">
           <div class="col-md-6 text-center text-md-start">
-            <p>&copy; 2024 FitConnect. All rights reserved.</p>
+            <p>© 2024 FitConnect. All rights reserved.</p>
           </div>
           <div class="col-md-6 text-center text-md-end">
-            <a href="#" class="text-white me-3">Terms of Service</a>
+            <a href="terms.html" class="text-white me-3">Terms of Service</a>
             <a href="privacy.html" class="text-white">Privacy Policy</a>
           </div>
         </div>
       </div>
     </footer>
 
-    <a href="#" id="scrollToTop" class="scroll-to-top">
-      <i class="fas fa-chevron-up"></i>
-    </a>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
       // Initialize AOS
       AOS.init({
@@ -609,23 +500,10 @@
         once: true,
       });
 
-      // Scroll to top functionality
-      const scrollToTop = document.querySelector("#scrollToTop");
-      window.addEventListener("scroll", () => {
-        if (window.pageYOffset > 100) {
-          scrollToTop.style.display = "block";
-        } else {
-          scrollToTop.style.display = "none";
-        }
-      });
-
-      scrollToTop.addEventListener("click", (e) => {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
-
-      // Dark mode toggle
-      const toggleSwitch = document.querySelector("#checkbox");
+      // Theme toggle
+      const toggleSwitch = document.querySelector(
+        '.theme-switch input[type="checkbox"]'
+      );
       const currentTheme = localStorage.getItem("theme");
 
       if (currentTheme) {
@@ -639,16 +517,26 @@
       function switchTheme(e) {
         if (e.target.checked) {
           document.documentElement.setAttribute("data-theme", "dark");
-          localStorage.setItem("theme", "dark");
           document.body.classList.add("dark-mode");
+          localStorage.setItem("theme", "dark");
         } else {
           document.documentElement.setAttribute("data-theme", "light");
-          localStorage.setItem("theme", "light");
           document.body.classList.remove("dark-mode");
+          localStorage.setItem("theme", "light");
         }
       }
 
       toggleSwitch.addEventListener("change", switchTheme, false);
+
+      // Add smooth scrolling for sidebar navigation links
+      document.querySelectorAll('.terms-nav a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
     </script>
   </body>
 </html>
