@@ -40,8 +40,16 @@
         background-color: var(--background-color);
         padding: 1rem 0;
         transition: background-color 0.3s ease;
+        /* Fixed positioning for the navbar */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
       }
-
+      .theme-switch-item {
+        margin-left: 20px; /* Adjust the value (20px) as needed */
+      }
       .navbar-brand {
         font-weight: 700;
         color: var(--text-color);
@@ -94,7 +102,9 @@
       .login-form {
         padding: 2rem;
       }
-
+      .contact-item {
+        margin-right: 20px; /* Adjust the value (20px) as needed */
+      }
       .form-control {
         border-radius: 50px;
         padding: 0.75rem 1.5rem;
@@ -147,7 +157,6 @@
         text-decoration: none;
         transition: all 0.3s ease;
       }
-
       .social-login a:hover {
         transform: translateY(-2px);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -374,11 +383,11 @@
     </style>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container">
         <a class="navbar-brand" href="index.html">
           <img
-            src="/api/placeholder/40/40"
+            src="logo.png"
             alt="FitConnect Logo"
             width="40"
             height="40"
@@ -398,7 +407,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
+          <ul class="navbar-nav">
             <li class="nav-item">
               <a class="nav-link" href="index.html">Home</a>
             </li>
@@ -411,10 +420,34 @@
             <li class="nav-item">
               <a class="nav-link" href="blog.html">Blog</a>
             </li>
-            <li class="nav-item">
+            <!-- "More" Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                More
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
+                <li><a class="dropdown-item" href="terms.html">Terms</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item contact-item">
               <a class="nav-link" href="contact.html">Contact</a>
             </li>
+
             <li class="nav-item">
+              <a class="nav-link btn btn-primary" href="signup.html">Sign Up</a>
+            </li>
+            <li class="nav-item theme-switch-item">
               <div class="theme-switch-wrapper">
                 <label class="theme-switch" for="checkbox">
                   <input type="checkbox" id="checkbox" />
