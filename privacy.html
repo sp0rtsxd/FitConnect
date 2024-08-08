@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Privacy Policy - FitConnect</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+		/>
+		<style>
+			:root {
+				--primary-color: #4caf50;
+				--secondary-color: #2196f3;
+				--accent-color: #ffc107;
+				--text-color: #333333;
+				--bg-color: #ffffff;
+				--card-bg: #f8f9fa;
+				--link-color: #007bff;
+			}
+
+			.dark-mode {
+				--text-color: #e9e9e9;
+				--bg-color: #121212;
+				--card-bg: #212529;
+				--link-color: #2196f3;
+			}
+
+			body {
+				font-family: "Alexandria", sans-serif;
+				background-color: var(--bg-color);
+				color: var(--text-color);
+				transition: background-color 0.3s ease, color 0.3s ease;
+			}
+
+			.navbar {
+				background-color: var(--bg-color);
+				padding: 1rem 0;
+				transition: background-color 0.3s ease;
+				/* Fixed positioning for the navbar */
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				z-index: 100;
+			}
+			.theme-switch-item {
+				margin-left: 20px; /* Adjust the value (20px) as needed */
+			}
+			.navbar-brand {
+				font-weight: 700;
+				color: var(--text-color);
+				transition: color 0.3s ease;
+				display: flex;
+				align-items: center;
+			}
+
+			.navbar-brand svg {
+				transition: all 0.3s ease;
+			}
+
+			.navbar-brand:hover svg {
+				transform: scale(1.1);
+			}
+
+			.navbar-brand svg rect {
+				animation: glowPulse 2s infinite;
+			}
+
+			.navbar-brand svg #bgGradient stop {
+				animation: colorShift 4s infinite alternate;
+			}
+
+			.navbar-brand svg path[fill="#ffffff"] {
+				animation: liftDumbbell 2s ease-in-out infinite;
+			}
+
+			.navbar-brand:hover svg path[fill="#ffffff"] {
+				animation: liftDumbbell 0.5s ease-in-out infinite;
+			}
+
+			.navbar-brand svg path[fill="#e6e6e6"] {
+				animation: pumpIron 2s ease-in-out infinite;
+			}
+
+			.navbar-brand:hover svg path[fill="#e6e6e6"] {
+				animation: pumpIron 0.5s ease-in-out infinite;
+			}
+
+			/* 3D effect on hover */
+			.navbar-brand svg {
+				transition: transform 0.3s ease;
+			}
+
+			.navbar-brand:hover svg {
+				transform: perspective(100px) rotateX(5deg) rotateY(-5deg) scale(1.1);
+			}
+
+			@keyframes rotateDash {
+				0% {
+					transform: rotate(0deg);
+				}
+				100% {
+					transform: rotate(360deg);
+				}
+			}
+
+			@keyframes pulse {
+				0%,
+				100% {
+					transform: scale(1);
+				}
+				50% {
+					transform: scale(1.05);
+				}
+			}
+
+			.navbar-brand svg {
+				overflow: visible;
+			}
+
+			.navbar-brand svg circle:last-child {
+				transform-origin: center;
+				animation: rotateDash 20s linear infinite;
+			}
+
+			.navbar-brand svg g {
+				transform-origin: center;
+				animation: pulse 2s ease-in-out infinite;
+			}
+
+			/* Optional: Add hover effect */
+			.navbar-brand:hover svg g {
+				animation: pulse 1s ease-in-out infinite;
+			}
+
+			.nav-link {
+				color: var(--text-color);
+				transition: color 0.3s ease;
+			}
+
+			.hero-section {
+				background: linear-gradient(135deg, #4caf50, #2196f3);
+				padding: 150px 0 100px;
+				clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+				position: relative;
+				overflow: hidden;
+			}
+
+			.hero-content {
+				position: relative;
+				z-index: 1;
+			}
+
+			.hero-shapes {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+
+			.hero-shape {
+				position: absolute;
+				opacity: 0.1;
+				animation: float 15s infinite;
+			}
+
+			.hero-shape:nth-child(1) {
+				top: 20%;
+				left: 10%;
+				width: 80px;
+				height: 80px;
+				background-color: #ffffff;
+				clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+			}
+
+			.hero-shape:nth-child(2) {
+				top: 60%;
+				right: 10%;
+				width: 120px;
+				height: 120px;
+				background-color: #ffffff;
+				border-radius: 50%;
+			}
+
+			.hero-shape:nth-child(3) {
+				bottom: 10%;
+				left: 20%;
+				width: 60px;
+				height: 60px;
+				background-color: #ffffff;
+				clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+			}
+
+			@keyframes float {
+				0%,
+				100% {
+					transform: translate(0, 0) rotate(0deg);
+				}
+				25% {
+					transform: translate(10px, -10px) rotate(5deg);
+				}
+				50% {
+					transform: translate(20px, 0) rotate(-5deg);
+				}
+				75% {
+					transform: translate(-10px, 10px) rotate(3deg);
+				}
+			}
+			.services-container {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				gap: 30px;
+				padding: 50px 0;
+			}
+
+			.service-card {
+				background-color: var(--card-bg);
+				border-radius: 15px;
+				overflow: hidden;
+				width: 300px;
+				transition: all 0.3s ease;
+				position: relative;
+			}
+
+			.service-card:hover {
+				transform: translateY(-10px);
+				box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+			}
+
+			.dark-mode .service-card:hover {
+				box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+			}
+/* Dark Mode Styles for Accordion */
+.dark-mode .accordion-item {
+  background-color: var(--card-bg); /* Use dark mode card background */
+  color: var(--text-color);         /* Use dark mode text color */
+}
+
+.dark-mode .accordion-header button {
+  background-color: var(--card-bg); /* Use dark mode card background */
+  color: var(--text-color);         /* Use dark mode text color */
+}
+
+.dark-mode .accordion-button:not(.collapsed) {
+  background-color: var(--card-bg); /* Maintain dark background on active */
+  color: var(--text-color); 
+}
+
+.dark-mode .accordion-button:focus {
+  box-shadow: none; /* Remove default focus outline for better look */
+}
+
+.dark-mode .accordion-body {
+  background-color: var(--card-bg); /* Use dark mode card background */
+  color: var(--text-color);         /* Use dark mode text color */
+}
+
+			.service-icon {
+				font-size: 48px;
+				color: var(--primary-color);
+				margin-bottom: 20px;
+			}
+
+			.service-content {
+				padding: 30px;
+			}
+
+			.service-title {
+				font-size: 24px;
+				font-weight: 600;
+				margin-bottom: 15px;
+			}
+
+			.service-description {
+				font-size: 16px;
+				color: var(--text-color);
+				opacity: 0.8;
+			}
+
+			.service-overlay {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(76, 175, 80, 0.9);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				opacity: 0;
+				transition: opacity 0.3s ease;
+			}
+
+			.service-card:hover .service-overlay {
+				opacity: 1;
+			}
+
+			.service-cta {
+				color: white;
+				text-decoration: none;
+				font-weight: 600;
+				font-size: 18px;
+				padding: 10px 20px;
+				border: 2px solid white;
+				border-radius: 30px;
+				transition: all 0.3s ease;
+			}
+
+			.service-cta:hover {
+				background-color: white;
+				color: var(--primary-color);
+			}
+
+			.theme-switch-wrapper {
+				display: flex;
+				align-items: center;
+			}
+
+			.theme-switch {
+				display: inline-block;
+				height: 34px;
+				position: relative;
+				width: 60px;
+			}
+
+			.theme-switch input {
+				display: none;
+			}
+
+			.slider {
+				background-color: #ccc;
+				bottom: 0;
+				cursor: pointer;
+				left: 0;
+				position: absolute;
+				right: 0;
+				top: 0;
+				transition: 0.4s;
+				border-radius: 34px;
+			}
+
+			.slider:before {
+				background-color: #fff;
+				bottom: 4px;
+				content: "";
+				height: 26px;
+				left: 4px;
+				position: absolute;
+				transition: 0.4s;
+				width: 26px;
+				border-radius: 50%;
+			}
+
+			input:checked + .slider {
+				background-color: #2196f3;
+			}
+
+			input:checked + .slider:before {
+				transform: translateX(26px);
+			}
+
+			.slider .icon {
+				color: #f39c12;
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				transition: opacity 0.3s ease;
+				font-size: 18px;
+			}
+
+			.slider .sun {
+				left: 6px;
+			}
+
+			.slider .moon {
+				right: 6px;
+				opacity: 0;
+			}
+
+			input:checked + .slider .sun {
+				opacity: 0;
+			}
+
+			input:checked + .slider .moon {
+				opacity: 1;
+			}
+
+			.scroll-to-top {
+				position: fixed;
+				bottom: 20px;
+				right: 20px;
+				background-color: var(--primary-color);
+				color: white;
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-size: 20px;
+				opacity: 0;
+				visibility: hidden;
+				transition: all 0.3s ease;
+				z-index: 1000;
+			}
+
+			.scroll-to-top.active {
+				opacity: 1;
+				visibility: visible;
+			}
+
+			.scroll-to-top:hover {
+				background-color: var(--accent-color);
+			}
+
+			#goal-calculator,
+			#coaches,
+			#testimonials,
+			#find-gym,
+			#blog,
+			#progress {
+				padding: 80px 0;
+				background-color: var(--bg-color);
+			}
+
+			.section-title {
+				text-align: center;
+				margin-bottom: 50px;
+				font-weight: 700;
+				color: var(--text-color);
+			}
+
+			.coach-card,
+			.testimonial-item,
+			.blog-preview {
+				background-color: var(--card-bg);
+				border-radius: 15px;
+				overflow: hidden;
+				transition: all 0.3s ease;
+			}
+
+			.coach-card:hover,
+			.testimonial-item:hover,
+			.blog-preview:hover {
+				transform: translateY(-10px);
+				box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+			}
+
+			.dark-mode .coach-card:hover,
+			.dark-mode .testimonial-item:hover,
+			.dark-mode .blog-preview:hover {
+				box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+			}
+
+			.cta-section {
+				background: linear-gradient(135deg, #4caf50, #2196f3);
+				padding: 100px 0;
+				text-align: center;
+				color: white;
+			}
+
+			.btn-light {
+				background-color: white;
+				color: var(--primary-color);
+				font-weight: 600;
+				padding: 12px 30px;
+				border-radius: 30px;
+				transition: all 0.3s ease;
+			}
+
+			.btn-light:hover {
+				background-color: var(--accent-color);
+				color: white;
+			}
+
+			.form-control {
+				background-color: var(--card-bg);
+				color: var(--text-color);
+			}
+
+			.form-control:focus {
+				background-color: var(--card-bg);
+				color: var(--text-color);
+				border-color: var(--link-color);
+				box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+			}
+
+			.form-select {
+				background-color: var(--card-bg);
+				color: var(--text-color);
+			}
+
+			.form-select:focus {
+				background-color: var(--card-bg);
+				color: var(--text-color);
+				border-color: var(--link-color);
+				box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+			}
+
+			.card {
+				background-color: var(--card-bg);
+				color: var(--text-color);
+			}
+
+			.btn-link {
+				color: var(--link-color);
+			}
+
+			.btn-link:hover {
+				color: var(--link-color);
+			}
+
+			.social-icons a {
+				color: var(--text-color);
+				transition: color 0.3s ease;
+			}
+
+			.social-icons a:hover {
+				color: var(--link-color);
+			}
+
+			/* Additional styles for privacy page */
+			#privacy-content {
+				padding: 80px 0;
+				background-color: var(--bg-color);
+			}
+
+			.privacy-card {
+				border: none;
+				border-radius: 15px;
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+				transition: transform 0.3s ease-in-out;
+			}
+
+			.privacy-card:hover {
+				transform: translateY(-5px);
+			}
+
+			.privacy-icon {
+				font-size: 2.5rem;
+				color: var(--primary-color);
+			}
+
+			#privacyCalculator {
+				background-color: var(--card-bg);
+				border-radius: 15px;
+				padding: 20px;
+				margin-top: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light">
+			<div class="container">
+				<a class="navbar-brand" href="index.html">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24"
+						width="40"
+						height="40"
+						class="d-inline-block align-top me-2"
+					>
+						<defs>
+							<linearGradient
+								id="bgGradient"
+								x1="0%"
+								y1="0%"
+								x2="100%"
+								y2="100%"
+							>
+								<stop
+									offset="0%"
+									style="stop-color: #45a049; stop-opacity: 1"
+								/>
+								<stop
+									offset="100%"
+									style="stop-color: #4caf50; stop-opacity: 1"
+								/>
+							</linearGradient>
+						</defs>
+						<rect
+							x="1"
+							y="1"
+							width="22"
+							height="22"
+							rx="4"
+							fill="url(#bgGradient)"
+						/>
+						<path
+							d="M5,6 h3 a1,1 0 0 1 1,1 v10 a1,1 0 0 1 -1,1 h-3 a1,1 0 0 1 -1,-1 v-10 a1,1 0 0 1 1,-1 z 
+                     M16,6 h3 a1,1 0 0 1 1,1 v10 a1,1 0 0 1 -1,1 h-3 a1,1 0 0 1 -1,-1 v-10 a1,1 0 0 1 1,-1 z 
+                     M8,10 h8 a1,1 0 0 1 1,1 v2 a1,1 0 0 1 -1,1 h-8 a1,1 0 0 1 -1,-1 v-2 a1,1 0 0 1 1,-1 z"
+							fill="#ffffff"
+						/>
+						<path
+							d="M5,7 h3 v10 h-3 v-10 z M16,7 h3 v10 h-3 v-10 z M8,11 h8 v2 h-8 v-2 z"
+							fill="#e6e6e6"
+							opacity="0.3"
+						/>
+					</svg>
+					FitConnect
+				</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarNav"
+					aria-controls="navbarNav"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a class="nav-link" href="index.html">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="about.html">About</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="pricing.html">Pricing</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="blog.html">Blog</a>
+						</li>
+						<!-- "More" Dropdown -->
+						<li class="nav-item dropdown">
+							<a
+								class="nav-link dropdown-toggle"
+								href="#"
+								id="navbarDropdown"
+								role="button"
+								data-bs-toggle="dropdown"
+								aria-expanded="false"
+							>
+								More
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item" href="faq.html">FAQ</a></li>
+								<li><a class="dropdown-item" href="terms.html">Terms</a></li>
+								<li>
+									<a class="dropdown-item active" href="privacy.html"
+										>Privacy</a
+									>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<ul class="navbar-nav ms-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="contact.html">Contact</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link btn btn-primary" href="signup.html"
+								>Sign Up</a
+							>
+						</li>
+						<li class="nav-item theme-switch-item">
+							<div class="theme-switch-wrapper">
+								<label class="theme-switch" for="checkbox">
+									<input type="checkbox" id="checkbox" />
+									<div class="slider">
+										<i class="fas fa-sun icon sun"></i>
+										<i class="fas fa-moon icon moon"></i>
+									</div>
+								</label>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<header class="hero-section text-white text-center">
+			<div class="hero-content">
+				<h1 class="display-4 mb-4" data-aos="fade-up">
+					Our Privacy Policy
+				</h1>
+				<p class="lead mb-5" data-aos="fade-up" data-aos-delay="100">
+					We value your privacy and are committed to protecting your
+					personal information.
+				</p>
+			</div>
+			<div class="hero-shapes">
+				<div class="hero-shape"></div>
+				<div class="hero-shape"></div>
+				<div class="hero-shape"></div>
+			</div>
+		</header>
+
+		<section id="privacy-content">
+			<div class="container">
+				<h2 class="section-title" data-aos="fade-up">
+					Key Privacy Principles
+				</h2>
+				<div class="row">
+					<div class="col-md-4 mb-4" data-aos="fade-up">
+						<div class="card privacy-card h-100">
+							<div class="card-body text-center">
+								<i class="fas fa-shield-alt privacy-icon mb-3"></i>
+								<h5 class="card-title">Data Protection</h5>
+								<p class="card-text">
+									We use industry-standard security measures to protect
+									your personal information.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+						<div class="card privacy-card h-100">
+							<div class="card-body text-center">
+								<i class="fas fa-user-lock privacy-icon mb-3"></i>
+								<h5 class="card-title">Transparency</h5>
+								<p class="card-text">
+									We are clear about what information we collect and how we
+									use it.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+						<div class="card privacy-card h-100">
+							<div class="card-body text-center">
+								<i class="fas fa-check-circle privacy-icon mb-3"></i>
+								<h5 class="card-title">User Control</h5>
+								<p class="card-text">
+									You have control over your data and can request access or
+									deletion at any time.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<h2 class="section-title" data-aos="fade-up">
+					Privacy Policy Details
+				</h2>
+				<div class="accordion" id="privacyAccordion">
+					<div class="accordion-item" data-aos="fade-up">
+						<h3 class="accordion-header" id="headingOne">
+							<button
+								class="accordion-button"
+								type="button"
+								data-bs-toggle="collapse"
+								data-bs-target="#collapseOne"
+								aria-expanded="true"
+								aria-controls="collapseOne"
+							>
+								1. Information We Collect
+							</button>
+						</h3>
+						<div
+							id="collapseOne"
+							class="accordion-collapse collapse show"
+							aria-labelledby="headingOne"
+							data-bs-parent="#privacyAccordion"
+						>
+							<div class="accordion-body">
+								<p>
+									We may collect personal information that you provide, such
+									as your name, email address, and any other details you
+									submit through our website.
+								</p>
+								<p>
+									We also collect usage data, including your IP address,
+									browser type, and pages visited, to improve user
+									experience.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
+						<h3 class="accordion-header" id="headingTwo">
+							<button
+								class="accordion-button collapsed"
+								type="button"
+								data-bs-toggle="collapse"
+								data-bs-target="#collapseTwo"
+								aria-expanded="false"
+								aria-controls="collapseTwo"
+							>
+								2. How We Use Your Information
+							</button>
+						</h3>
+						<div
+							id="collapseTwo"
+							class="accordion-collapse collapse"
+							aria-labelledby="headingTwo"
+							data-bs-parent="#privacyAccordion"
+						>
+							<div class="accordion-body">
+								<ul>
+									<li>To provide and maintain our services.</li>
+									<li>To notify you about changes to our services.</li>
+									<li>
+										To allow you to participate in interactive features when
+										you choose to do so.
+									</li>
+									<li>To provide customer support.</li>
+									<li>
+										To gather analysis or valuable information so that we can
+										improve our services.
+									</li>
+									<li>To monitor the usage of our services.</li>
+									<li>To detect, prevent and address technical issues.</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
+						<h3 class="accordion-header" id="headingThree">
+							<button
+								class="accordion-button collapsed"
+								type="button"
+								data-bs-toggle="collapse"
+								data-bs-target="#collapseThree"
+								aria-expanded="false"
+								aria-controls="collapseThree"
+							>
+								3. Disclosure of Your Information
+							</button>
+						</h3>
+						<div
+							id="collapseThree"
+							class="accordion-collapse collapse"
+							aria-labelledby="headingThree"
+							data-bs-parent="#privacyAccordion"
+						>
+							<div class="accordion-body">
+								<p>
+									We may share your information with third parties to
+									provide you with our services, comply with legal
+									obligations, and protect our rights.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item" data-aos="fade-up" data-aos-delay="300">
+						<h3 class="accordion-header" id="headingFour">
+							<button
+								class="accordion-button collapsed"
+								type="button"
+								data-bs-toggle="collapse"
+								data-bs-target="#collapseFour"
+								aria-expanded="false"
+								aria-controls="collapseFour"
+							>
+								4. Security of Your Personal Information
+							</button>
+						</h3>
+						<div
+							id="collapseFour"
+							class="accordion-collapse collapse"
+							aria-labelledby="headingFour"
+							data-bs-parent="#privacyAccordion"
+						>
+							<div class="accordion-body">
+								<p>
+									The security of your personal information is important to
+									us, but remember that no method of transmission over the
+									Internet or method of electronic storage is 100% secure.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<h2 class="section-title" data-aos="fade-up">
+					Privacy Risk Calculator
+				</h2>
+				<div id="privacyCalculator" data-aos="fade-up" data-aos-delay="100">
+					<form id="privacyCalcForm">
+						<div class="mb-3">
+							<label for="dataShared" class="form-label"
+								>How much personal data do you share online?</label
+							>
+							<select class="form-select" id="dataShared" required>
+								<option value="">Select an option</option>
+								<option value="1">Minimal - only necessary information</option>
+								<option value="2">Moderate - some personal details</option>
+								<option value="3">
+									Extensive - lots of personal information
+								</option>
+							</select>
+						</div>
+						<div class="mb-3">
+							<label for="passwordStrength" class="form-label"
+								>How strong are your passwords?</label
+							>
+							<select class="form-select" id="passwordStrength" required>
+								<option value="">Select an option</option>
+								<option value="3">Weak - short or common words</option>
+								<option value="2">Moderate - mix of characters</option>
+								<option value="1">Strong - long with special characters</option>
+							</select>
+						</div>
+						<div class="mb-3">
+							<label for="twoFactor" class="form-label"
+								>Do you use two-factor authentication?</label
+							>
+							<select class="form-select" id="twoFactor" required>
+								<option value="">Select an option</option>
+								<option value="3">Never</option>
+								<option value="2">Sometimes</option>
+								<option value="1">Always</option>
+							</select>
+						</div>
+						<button type="submit" class="btn btn-primary">
+							Calculate Risk
+						</button>
+					</form>
+					<div id="riskResult" class="mt-3"></div>
+				</div>
+			</div>
+		</section>
+
+		<section id="cta" class="cta-section">
+			<div class="container text-center">
+				<h2 class="mb-4">
+					Have questions about our privacy policy?
+				</h2>
+				<a href="contact.html" class="btn btn-light btn-lg"
+					>Contact Us</a
+				>
+			</div>
+		</section>
+
+		<footer class="bg-dark text-white py-4">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<h5>FitConnect</h5>
+						<p>Transforming lives through fitness and nutrition.</p>
+						<div class="social-icons">
+							<a href="#" class="text-white me-2"
+								><i class="fab fa-facebook-f"></i
+							></a>
+							<a href="#" class="text-white me-2"
+								><i class="fab fa-twitter"></i
+							></a>
+							<a href="#" class="text-white me-2"
+								><i class="fab fa-instagram"></i
+							></a>
+							<a href="#" class="text-white"
+								><i class="fab fa-linkedin-in"></i
+							></a>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<h5>Quick Links</h5>
+						<ul class="list-unstyled">
+							<li><a href="about.html" class="text-white">About Us</a></li>
+                        </a></li>
+                        <li><a href="#services" class="text-white">Our Services</a></li>
+                        <li>
+                            <a href="faq.html" class="text-white">FAQ</a>
+                        </li>
+                        <li><a href="contact.html" class="text-white">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <address>
+                        <p>
+                            <i class="fas fa-map-marker-alt me-2"></i> 123 Fitness
+                            Street, Healthy City, FC 12345
+                        </p>
+                        <p><i class="fas fa-phone me-2"></i> (123) 456-7890</p>
+                        <p>
+                            <i class="fas fa-envelope me-2"></i> info@fitconnect.com
+                        </p>
+                    </address>
+                </div>
+            </div>
+            <hr class="my-4" />
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p>© 2024 FitConnect. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="terms.html" class="text-white me-3"
+                        >Terms of Service</a
+                    >
+                    <a href="privacy.html" class="text-white">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+        });
+
+        // Theme toggle
+        const toggleSwitch = document.querySelector(
+            '.theme-switch input[type="checkbox"]'
+        );
+        const currentTheme = localStorage.getItem("theme");
+
+        if (currentTheme) {
+            document.documentElement.setAttribute("data-theme", currentTheme);
+            if (currentTheme === "dark") {
+                toggleSwitch.checked = true;
+                document.body.classList.add("dark-mode");
+            }
+        }
+
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.documentElement.setAttribute("data-theme", "dark");
+                document.body.classList.add("dark-mode");
+                localStorage.setItem("theme", "dark");
+            } else {
+                document.documentElement.setAttribute("data-theme", "light");
+                document.body.classList.remove("dark-mode");
+                localStorage.setItem("theme", "light");
+            }
+        }
+
+        toggleSwitch.addEventListener("change", switchTheme, false);
+
+        // Privacy Risk Calculator
+        document
+            .getElementById("privacyCalcForm")
+            .addEventListener("submit", function (e) {
+                e.preventDefault();
+                const dataShared = parseInt(
+                    document.getElementById("dataShared").value
+                );
+                const passwordStrength = parseInt(
+                    document.getElementById("passwordStrength").value
+                );
+                const twoFactor = parseInt(document.getElementById("twoFactor").value);
+
+                const riskScore = dataShared + passwordStrength + twoFactor;
+                let riskLevel, advice;
+
+                if (riskScore <= 4) {
+                    riskLevel = "Low";
+                    advice =
+                        "Great job! You're taking good care of your online privacy.";
+                } else if (riskScore <= 7) {
+                    riskLevel = "Moderate";
+                    advice =
+                        "There's room for improvement. Consider strengthening your passwords and using two-factor authentication more often.";
+                } else {
+                    riskLevel = "High";
+                    advice =
+                        "Your online privacy is at risk. Take immediate steps to reduce the amount of personal information you share and improve your security practices.";
+                }
+
+                document.getElementById("riskResult").innerHTML = `
+            <h4 class="mt-4">Your Privacy Risk: ${riskLevel}</h4>
+            <p>${advice}</p>
+        `;
+            });
+
+        // Scroll to top button
+        const scrollToTopBtn = document.getElementById("scrollToTop");
+
+        window.addEventListener("scroll", () => {
+            if (window.pageYOffset > 100) {
+                scrollToTopBtn.classList.add("active");
+            } else {
+                scrollToTopBtn.classList.remove("active");
+            }
+        });
+
+        scrollToTopBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    </script>
+</body>
+</html>
