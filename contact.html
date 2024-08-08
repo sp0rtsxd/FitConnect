@@ -194,7 +194,91 @@
 			.contact-info li {
 				margin-bottom: 20px;
 			}
+			/* Add this to your CSS file */
 
+			@keyframes liftDumbbell {
+				0%,
+				100% {
+					transform: translateY(0) rotate(0deg);
+				}
+				25% {
+					transform: translateY(-2px) rotate(-3deg);
+				}
+				75% {
+					transform: translateY(-2px) rotate(3deg);
+				}
+			}
+
+			@keyframes pumpIron {
+				0%,
+				100% {
+					transform: scaleX(1);
+				}
+				50% {
+					transform: scaleX(1.1);
+				}
+			}
+
+			@keyframes glowPulse {
+				0%,
+				100% {
+					filter: drop-shadow(0 0 2px rgba(76, 175, 80, 0.5));
+				}
+				50% {
+					filter: drop-shadow(0 0 8px rgba(76, 175, 80, 0.8));
+				}
+			}
+
+			@keyframes colorShift {
+				0%,
+				100% {
+					stop-color: #4caf50;
+				}
+				50% {
+					stop-color: #45a049;
+				}
+			}
+
+			.navbar-brand svg {
+				transition: all 0.3s ease;
+			}
+
+			.navbar-brand:hover svg {
+				transform: scale(1.1);
+			}
+
+			.navbar-brand svg rect {
+				animation: glowPulse 2s infinite;
+			}
+
+			.navbar-brand svg #bgGradient stop {
+				animation: colorShift 4s infinite alternate;
+			}
+
+			.navbar-brand svg path[fill="#ffffff"] {
+				animation: liftDumbbell 2s ease-in-out infinite;
+			}
+
+			.navbar-brand:hover svg path[fill="#ffffff"] {
+				animation: liftDumbbell 0.5s ease-in-out infinite;
+			}
+
+			.navbar-brand svg path[fill="#e6e6e6"] {
+				animation: pumpIron 2s ease-in-out infinite;
+			}
+
+			.navbar-brand:hover svg path[fill="#e6e6e6"] {
+				animation: pumpIron 0.5s ease-in-out infinite;
+			}
+
+			/* 3D effect on hover */
+			.navbar-brand svg {
+				transition: transform 0.3s ease;
+			}
+
+			.navbar-brand:hover svg {
+				transform: perspective(100px) rotateX(5deg) rotateY(-5deg) scale(1.1);
+			}
 			.contact-info i {
 				font-size: 1.5rem;
 				color: var(--primary-color);
@@ -303,14 +387,52 @@
 	<body>
 		<nav class="navbar navbar-expand-lg navbar-light fixed-top">
 			<div class="container">
-				<a class="navbar-brand" href="index.html">
-					<img
-						src="/api/placeholder/40/40"
-						alt="FitConnect Logo"
+				<a class="navbar-brand" href="#">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24"
 						width="40"
 						height="40"
 						class="d-inline-block align-top me-2"
-					/>
+					>
+						<defs>
+							<linearGradient
+								id="bgGradient"
+								x1="0%"
+								y1="0%"
+								x2="100%"
+								y2="100%"
+							>
+								<stop
+									offset="0%"
+									style="stop-color: #45a049; stop-opacity: 1"
+								/>
+								<stop
+									offset="100%"
+									style="stop-color: #4caf50; stop-opacity: 1"
+								/>
+							</linearGradient>
+						</defs>
+						<rect
+							x="1"
+							y="1"
+							width="22"
+							height="22"
+							rx="4"
+							fill="url(#bgGradient)"
+						/>
+						<path
+							d="M5,6 h3 a1,1 0 0 1 1,1 v10 a1,1 0 0 1 -1,1 h-3 a1,1 0 0 1 -1,-1 v-10 a1,1 0 0 1 1,-1 z 
+							   M16,6 h3 a1,1 0 0 1 1,1 v10 a1,1 0 0 1 -1,1 h-3 a1,1 0 0 1 -1,-1 v-10 a1,1 0 0 1 1,-1 z 
+							   M8,10 h8 a1,1 0 0 1 1,1 v2 a1,1 0 0 1 -1,1 h-8 a1,1 0 0 1 -1,-1 v-2 a1,1 0 0 1 1,-1 z"
+							fill="#ffffff"
+						/>
+						<path
+							d="M5,7 h3 v10 h-3 v-10 z M16,7 h3 v10 h-3 v-10 z M8,11 h8 v2 h-8 v-2 z"
+							fill="#e6e6e6"
+							opacity="0.3"
+						/>
+					</svg>
 					FitConnect
 				</a>
 				<button

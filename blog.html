@@ -1,770 +1,892 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FitConnect - Blog</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      :root {
-        --primary-color: #4caf50;
-        --secondary-color: #2196f3;
-        --accent-color: #ffc107;
-        --text-color: #333;
-        --bg-color: #fff;
-        --card-bg: #f8f9fa;
-        --link-color: #007bff;
-      }
-
-      .dark-mode {
-        --text-color: #e9e9e9;
-        --bg-color: #121212;
-        --card-bg: #212529;
-        --link-color: #2196f3;
-      }
-
-      body {
-        font-family: "Alexandria", sans-serif;
-        background-color: var(--bg-color);
-        color: var(--text-color);
-        transition: background-color 0.3s ease, color 0.3s ease;
-      }
-
-      /* Navigation Bar Styles */
-      .navbar {
-        background-color: var(--bg-color); /* Consistent background */
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 100;
-        transition: background-color 0.3s ease;
-        padding-top: 10px;
-        padding-bottom: 10px;
-      }
-
-      .navbar-light .navbar-nav .nav-link {
-        color: var(--text-color); /* Use text color variable */
-      }
-
-      .navbar-light .navbar-nav .nav-link:hover {
-        color: var(--link-color); /* Use link color variable */
-      }
-
-      .navbar-brand {
-        color: var(--text-color) !important; /* Use text color variable */
-      }
-
-      .hero-section {
-        background: linear-gradient(135deg, #4caf50, #2196f3);
-        padding: 160px 0 100px;
-        position: relative;
-        overflow: hidden;
-        text-align: center;
-      }
-
-      .hero-section h1 {
-        color: white;
-        margin-bottom: 20px;
-      }
-
-      .hero-section p {
-        color: white;
-        max-width: 800px;
-        margin: 0 auto;
-      }
-
-      .blog-section {
-        padding: 80px 0;
-        background-color: var(--bg-color);
-      }
-
-      .blog-card {
-        background-color: var(--card-bg);
-        border: none;
-        border-radius: 15px;
-        overflow: hidden;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        margin-bottom: 30px;
-      }
-
-      .blog-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-      }
-
-      .blog-card .card-img-top {
-        height: 200px;
-        object-fit: cover;
-      }
-
-      .blog-card-body {
-        padding: 20px;
-      }
-
-      .blog-category {
-        padding: 5px 10px;
-        background-color: var(--primary-color);
-        color: white;
-        text-transform: uppercase;
-        font-size: 12px;
-        border-radius: 5px;
-        margin-bottom: 10px;
-      }
-
-      .blog-meta {
-        font-size: 14px;
-        color: #adb5bd;
-        margin-bottom: 10px;
-      }
-
-      .blog-sidebar {
-        background-color: var(--card-bg);
-        padding: 30px;
-        border-radius: 15px;
-      }
-      .blog-sidebar .list-unstyled li a {
-        color: var(--text-color);
-        text-decoration: none;
-      }
-
-      .blog-sidebar .list-unstyled li .post-date {
-        /* Target the .post-date span */
-        color: var(--text-color);
-        opacity: 0.7;
-        font-size: 0.8rem; /* Adjust font size if needed */
-      }
-
-      .card {
-        background-color: var(--card-bg);
-        border: none;
-        margin-bottom: 20px;
-      }
-
-      .card-title {
-        color: var(--text-color);
-      }
-
-      .category-list li a {
-        color: var(--text-color);
-      }
-
-      .tag-cloud {
-        display: flex;
-        flex-wrap: wrap;
-      }
-
-      .tag-cloud a {
-        background-color: #ced4da; /* Slightly darker gray for better contrast in light mode */
-        color: var(--text-color);
-        padding: 5px 10px;
-        margin: 5px;
-        border-radius: 5px;
-        display: inline-block;
-        text-decoration: none;
-      }
-
-      .dark-mode .tag-cloud a {
-        background-color: #343a40; /* Darker background for dark mode */
-        color: #f8f9fa; /* Light text for dark mode */
-      }
-
-      .blog-sidebar .list-unstyled li a {
-        color: var(--text-color);
-        text-decoration: none;
-      }
-
-      .blog-sidebar .list-unstyled li small.text-muted {
-        /* Target <small> with text-muted */
-        color: var(--text-color);
-        opacity: 0.7;
-      }
-      .footer {
-        background-color: #333;
-        color: white;
-        padding: 20px 0;
-        text-align: center;
-      }
-
-      .social-icons a {
-        color: white;
-        font-size: 20px;
-        margin: 0 10px;
-      }
-
-      .scroll-to-top {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        display: none;
-        background-color: var(--primary-color);
-        color: white;
-        padding: 10px 15px;
-        border-radius: 50%;
-        z-index: 1000;
-        transition: opacity 0.3s ease;
-      }
-
-      .scroll-to-top.active {
-        display: block;
-      }
-
-      .scroll-to-top:hover {
-        opacity: 0.8;
-      }
-
-      .theme-switch-wrapper {
-        display: flex;
-        align-items: center;
-      }
-
-      .theme-switch {
-        display: inline-block;
-        height: 34px;
-        position: relative;
-        width: 60px;
-      }
-
-      .theme-switch input {
-        display: none;
-      }
-
-      .slider {
-        background-color: #ccc;
-        bottom: 0;
-        cursor: pointer;
-        left: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
-        transition: 0.4s;
-        border-radius: 34px;
-      }
-
-      .slider:before {
-        background-color: #fff;
-        bottom: 4px;
-        content: "";
-        height: 26px;
-        left: 4px;
-        position: absolute;
-        transition: 0.4s;
-        width: 26px;
-        border-radius: 50%;
-      }
-
-      input:checked + .slider {
-        background-color: #2196f3;
-      }
-
-      input:checked + .slider:before {
-        transform: translateX(26px);
-      }
-
-      .slider .icon {
-        color: #f39c12;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        transition: opacity 0.3s ease;
-        font-size: 18px;
-      }
-
-      .slider .sun {
-        left: 6px;
-      }
-
-      .slider .moon {
-        right: 6px;
-        opacity: 0;
-      }
-
-      input:checked + .slider .sun {
-        opacity: 0;
-      }
-
-      input:checked + .slider .moon {
-        opacity: 1;
-      }
-
-      /* Additional styles */
-      .post-title {
-        margin-bottom: 10px;
-      }
-
-      .pagination .page-link {
-        background-color: transparent;
-        color: var(--text-color);
-        border: 1px solid var(--text-color);
-      }
-
-      .pagination .page-link:hover,
-      .pagination .page-link:focus {
-        color: var(--link-color);
-        border-color: var(--link-color);
-      }
-
-      .pagination .page-item.active .page-link {
-        background-color: var(--link-color);
-        border-color: var(--link-color);
-        color: white;
-      }
-
-      .btn-outline-light {
-        color: var(--text-color);
-        border-color: var(--text-color);
-      }
-
-      .btn-outline-light:hover {
-        color: var(--bg-color);
-        background-color: var(--text-color);
-        border-color: var(--text-color);
-      }
-
-      .search-form .input-group {
-        position: relative;
-      }
-
-      .search-form .btn {
-        position: absolute;
-        right: 0;
-        top: 0;
-        border-radius: 0 5px 5px 0;
-      }
-    </style>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-      <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="index.html">
-          <img
-            src="logo.png"
-            alt="FitConnect Logo"
-            width="40"
-            height="32"
-            class="d-inline-block align-top me-2"
-          />
-          <span class="font-weight-bold">FitConnect</span>
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="blog.html"
-                >Blog</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="pricing.html">Pricing</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-            <li class="nav-item">
-              <div class="theme-switch-wrapper">
-                <label class="theme-switch" for="checkbox">
-                  <input type="checkbox" id="checkbox" />
-                  <div class="slider">
-                    <i class="fas fa-sun icon sun"></i>
-                    <i class="fas fa-moon icon moon"></i>
-                  </div>
-                </label>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <header class="hero-section text-center">
-      <div class="container">
-        <h1 class="display-4 mb-4" data-aos="fade-up">FitConnect Blog</h1>
-        <p class="lead mb-5" data-aos="fade-up" data-aos-delay="100">
-          Stay informed, motivated, and inspired on your fitness journey
-        </p>
-      </div>
-    </header>
-
-    <section class="blog-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8">
-            <div class="row">
-              <div class="col-md-6 mb-4" data-aos="fade-up">
-                <div class="blog-card h-100">
-                  <div class="card-body">
-                    <span class="badge blog-category">NUTRITION</span>
-                    <h3 class="card-title post-title">
-                      The Ultimate Guide to Meal Prepping
-                    </h3>
-                    <p class="blog-meta">
-                      <i class="far fa-calendar-alt me-2"></i>May 15, 2024
-                      <i class="far fa-user ms-3 me-2"></i>By John Doe
-                    </p>
-                    <p class="card-text">
-                      Learn how to save time and stay on track with your
-                      nutrition goals through effective meal prepping
-                      strategies.
-                    </p>
-                    <a href="#" class="btn btn-primary btn-sm">Read More</a>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="col-md-6 mb-4"
-                data-aos="fade-up"
-                data-aos-delay="100"
-              >
-                <div class="blog-card h-100">
-                  <div class="card-body">
-                    <span class="badge blog-category">WORKOUTS</span>
-                    <h3 class="card-title post-title">
-                      5 Yoga Poses for Better Flexibility
-                    </h3>
-                    <p class="blog-meta">
-                      <i class="far fa-calendar-alt me-2"></i>May 12, 2024
-                      <i class="far fa-user ms-3 me-2"></i>By Jane Smith
-                    </p>
-                    <p class="card-text">
-                      Improve your flexibility and reduce muscle tension with
-                      these beginner-friendly yoga poses.
-                    </p>
-                    <a href="#" class="btn btn-primary btn-sm">Read More</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 mb-4" data-aos="fade-up">
-                <div class="blog-card h-100">
-                  <div class="card-body">
-                    <span class="badge blog-category">MENTAL HEALTH</span>
-                    <h3 class="card-title post-title">
-                      The Connection Between Exercise and Mental Health
-                    </h3>
-                    <p class="blog-meta">
-                      <i class="far fa-calendar-alt me-2"></i>May 8, 2024
-                      <i class="far fa-user ms-3 me-2"></i>By Dr. Emily Johnson
-                    </p>
-                    <p class="card-text">
-                      Discover how regular physical activity can boost your
-                      mood, reduce stress, and improve overall mental
-                      well-being.
-                    </p>
-                    <a href="#" class="btn btn-primary btn-sm">Read More</a>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="col-md-6 mb-4"
-                data-aos="fade-up"
-                data-aos-delay="100"
-              >
-                <div class="blog-card h-100">
-                  <div class="card-body">
-                    <span class="badge blog-category">MOTIVATION</span>
-                    <h3 class="card-title post-title">
-                      5 Strategies to Stay Motivated on Your Fitness Journey
-                    </h3>
-                    <p class="blog-meta">
-                      <i class="far fa-calendar-alt me-2"></i>May 5, 2024
-                      <i class="far fa-user ms-3 me-2"></i>By Michael Brown
-                    </p>
-                    <p class="card-text">
-                      Learn practical tips to maintain your motivation and
-                      overcome obstacles in your fitness journey.
-                    </p>
-                    <a href="#" class="btn btn-primary btn-sm">Read More</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <nav aria-label="Blog pagination" class="mt-4">
-              <ul class="pagination justify-content-center">
-                <li class="page-item disabled">
-                  <a
-                    class="page-link"
-                    href="#"
-                    tabindex="-1"
-                    aria-disabled="true"
-                    >Previous</a
-                  >
-                </li>
-                <li class="page-item active" aria-current="page">
-                  <a class="page-link" href="#">1</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="#">Next</a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-          <div class="col-lg-4">
-            <aside class="blog-sidebar">
-              <div class="card mb-4" data-aos="fade-left">
-                <div class="card-body">
-                  <h4 class="card-title">Search</h4>
-                  <form class="search-form">
-                    <div class="input-group">
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Search blog posts..."
-                      />
-                      <button class="btn btn-primary" type="submit">
-                        <i class="fas fa-search"></i>
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-              <div class="card mb-4" data-aos="fade-left" data-aos-delay="100">
-                <div class="card-body">
-                  <h4 class="card-title">Categories</h4>
-                  <ul class="category-list list-unstyled">
-                    <li>
-                      <a href="#"
-                        >Workouts
-                        <span class="badge bg-primary float-end">12</span></a
-                      >
-                    </li>
-                    <li>
-                      <a href="#"
-                        >Nutrition
-                        <span class="badge bg-primary float-end">8</span></a
-                      >
-                    </li>
-                    <li>
-                      <a href="#"
-                        >Mental Health
-                        <span class="badge bg-primary float-end">5</span></a
-                      >
-                    </li>
-                    <li>
-                      <a href="#"
-                        >Motivation
-                        <span class="badge bg-primary float-end">7</span></a
-                      >
-                    </li>
-                    <li>
-                      <a href="#"
-                        >Equipment
-                        <span class="badge bg-primary float-end">4</span></a
-                      >
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="card mb-4" data-aos="fade-left" data-aos-delay="200">
-                <div class="card-body">
-                  <h4 class="card-title">Recent Posts</h4>
-                  <ul class="list-unstyled">
-                    <li class="mb-3">
-                      <a href="#" class="text-decoration-none"
-                        >The Benefits of Morning Workouts</a
-                      >
-                      <br />
-                      <span class="post-date">May 1, 2024</span> <br />
-                    </li>
-                    <li class="mb-3">
-                      <a href="#" class="text-decoration-none"
-                        >Healthy Snacks for Pre and Post Workout</a
-                      >
-                      <br />
-                      <span class="post-date">April 28, 2024</span> <br />
-                    </li>
-                    <li>
-                      <a href="#" class="text-decoration-none"
-                        >How to Choose the Right Running Shoes</a
-                      >
-                      <br />
-                      <span class="post-date">April 25, 2024</span> <br />
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="card" data-aos="fade-left" data-aos-delay="300">
-                <div class="card-body">
-                  <h4 class="card-title">Tags</h4>
-                  <div class="tag-cloud">
-                    <a href="#" class="tag">Fitness</a>
-                    <a href="#" class="tag">Nutrition</a>
-                    <a href="#" class="tag">Weightloss</a>
-                    <a href="#" class="tag">Yoga</a>
-                    <a href="#" class="tag">Cardio</a>
-                    <a href="#" class="tag">Strength</a>
-                    <a href="#" class="tag">Meditation</a>
-                    <a href="#" class="tag">Wellness</a>
-                  </div>
-                </div>
-              </div>
-            </aside>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="bg-dark text-white py-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 mb-4 mb-md-0">
-            <h5>FitConnect</h5>
-            <p>
-              Empowering your fitness journey with expert guidance and community
-              support.
-            </p>
-            <div class="social-icons">
-              <a href="#" class="text-white me-2"
-                ><i class="fab fa-facebook-f"></i
-              ></a>
-              <a href="#" class="text-white me-2"
-                ><i class="fab fa-twitter"></i
-              ></a>
-              <a href="#" class="text-white me-2"
-                ><i class="fab fa-instagram"></i
-              ></a>
-              <a href="#" class="text-white"
-                ><i class="fab fa-linkedin-in"></i
-              ></a>
-            </div>
-          </div>
-          <div class="col-md-4 mb-4 mb-md-0">
-            <h5>Quick Links</h5>
-            <ul class="list-unstyled">
-              <li><a href="index.html" class="text-white">Home</a></li>
-              <li><a href="about.html" class="text-white">About Us</a></li>
-              <li><a href="#" class="text-white">Blog</a></li>
-              <li><a href="#contact" class="text-white">Contact</a></li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <h5>Contact Us</h5>
-            <address>
-              <p>
-                <i class="fas fa-map-marker-alt me-2"></i>123 Fitness Street,
-                Healthy City, FC 12345
-              </p>
-              <p><i class="fas fa-phone me-2"></i>(123) 456-7890</p>
-              <p><i class="fas fa-envelope me-2"></i>info@fitconnect.com</p>
-            </address>
-          </div>
-        </div>
-        <hr class="my-4" />
-        <div class="row">
-          <div class="col-md-6 text-center text-md-start">
-            <p>© 2024 FitConnect. All rights reserved.</p>
-          </div>
-          <div class="col-md-6 text-center text-md-end">
-            <a href="terms.html" class="text-white me-3">Terms of Service</a>
-            <a href="privacy.html" class="text-white">Privacy Policy</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <a href="#" class="scroll-to-top" id="scrollToTop">
-      <i class="fas fa-chevron-up"></i>
-    </a>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-      // Initialize AOS
-      AOS.init({
-        duration: 1000,
-        once: true,
-      });
-
-      // Theme toggle
-      const toggleSwitch = document.querySelector(
-        '.theme-switch input[type="checkbox"]'
-      );
-      const currentTheme = localStorage.getItem("theme");
-
-      if (currentTheme) {
-        document.documentElement.setAttribute("data-theme", currentTheme);
-        if (currentTheme === "dark") {
-          toggleSwitch.checked = true;
-          document.body.classList.add("dark-mode");
-        }
-      }
-
-      function switchTheme(e) {
-        if (e.target.checked) {
-          document.documentElement.setAttribute("data-theme", "dark");
-          document.body.classList.add("dark-mode");
-          localStorage.setItem("theme", "dark");
-        } else {
-          document.documentElement.setAttribute("data-theme", "light");
-          document.body.classList.remove("dark-mode");
-          localStorage.setItem("theme", "light");
-        }
-      }
-
-      toggleSwitch.addEventListener("change", switchTheme, false);
-
-      // Scroll to top button
-      const scrollToTopBtn = document.getElementById("scrollToTop");
-
-      window.addEventListener("scroll", () => {
-        if (window.pageYOffset > 100) {
-          scrollToTopBtn.classList.add("active");
-        } else {
-          scrollToTopBtn.classList.remove("active");
-        }
-      });
-
-      scrollToTopBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
-
-      // Add smooth scrolling to all links
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-
-          document.querySelector(this.getAttribute("href")).scrollIntoView({
-            behavior: "smooth",
-          });
-        });
-      });
-    </script>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>FitConnect - Blog</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			:root {
+				--primary-color: #4caf50;
+				--secondary-color: #2196f3;
+				--accent-color: #ffc107;
+				--text-color: #333;
+				--bg-color: #fff;
+				--card-bg: #f8f9fa;
+				--link-color: #007bff;
+			}
+
+			.dark-mode {
+				--text-color: #e9e9e9;
+				--bg-color: #121212;
+				--card-bg: #212529;
+				--link-color: #2196f3;
+			}
+
+			body {
+				font-family: "Alexandria", sans-serif;
+				background-color: var(--bg-color);
+				color: var(--text-color);
+				transition: background-color 0.3s ease, color 0.3s ease;
+			}
+
+			/* Navigation Bar Styles */
+			.navbar {
+				background-color: var(--bg-color); /* Consistent background */
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				z-index: 100;
+				transition: background-color 0.3s ease;
+				padding-top: 10px;
+				padding-bottom: 10px;
+			}
+
+			.navbar-light .navbar-nav .nav-link {
+				color: var(--text-color); /* Use text color variable */
+			}
+
+			.navbar-light .navbar-nav .nav-link:hover {
+				color: var(--link-color); /* Use link color variable */
+			}
+
+			.navbar-brand {
+				color: var(--text-color) !important; /* Use text color variable */
+			}
+			/* Add this to your CSS file */
+
+			@keyframes liftDumbbell {
+				0%,
+				100% {
+					transform: translateY(0) rotate(0deg);
+				}
+				25% {
+					transform: translateY(-2px) rotate(-3deg);
+				}
+				75% {
+					transform: translateY(-2px) rotate(3deg);
+				}
+			}
+
+			@keyframes pumpIron {
+				0%,
+				100% {
+					transform: scaleX(1);
+				}
+				50% {
+					transform: scaleX(1.1);
+				}
+			}
+
+			@keyframes glowPulse {
+				0%,
+				100% {
+					filter: drop-shadow(0 0 2px rgba(76, 175, 80, 0.5));
+				}
+				50% {
+					filter: drop-shadow(0 0 8px rgba(76, 175, 80, 0.8));
+				}
+			}
+
+			@keyframes colorShift {
+				0%,
+				100% {
+					stop-color: #4caf50;
+				}
+				50% {
+					stop-color: #45a049;
+				}
+			}
+
+			.navbar-brand svg {
+				transition: all 0.3s ease;
+			}
+
+			.navbar-brand:hover svg {
+				transform: scale(1.1);
+			}
+
+			.navbar-brand svg rect {
+				animation: glowPulse 2s infinite;
+			}
+
+			.navbar-brand svg #bgGradient stop {
+				animation: colorShift 4s infinite alternate;
+			}
+
+			.navbar-brand svg path[fill="#ffffff"] {
+				animation: liftDumbbell 2s ease-in-out infinite;
+			}
+
+			.navbar-brand:hover svg path[fill="#ffffff"] {
+				animation: liftDumbbell 0.5s ease-in-out infinite;
+			}
+
+			.navbar-brand svg path[fill="#e6e6e6"] {
+				animation: pumpIron 2s ease-in-out infinite;
+			}
+
+			.navbar-brand:hover svg path[fill="#e6e6e6"] {
+				animation: pumpIron 0.5s ease-in-out infinite;
+			}
+
+			/* 3D effect on hover */
+			.navbar-brand svg {
+				transition: transform 0.3s ease;
+			}
+
+			.navbar-brand:hover svg {
+				transform: perspective(100px) rotateX(5deg) rotateY(-5deg) scale(1.1);
+			}
+			.hero-section {
+				background: linear-gradient(135deg, #4caf50, #2196f3);
+				padding: 160px 0 100px;
+				position: relative;
+				overflow: hidden;
+				text-align: center;
+			}
+
+			.hero-section h1 {
+				color: white;
+				margin-bottom: 20px;
+			}
+
+			.hero-section p {
+				color: white;
+				max-width: 800px;
+				margin: 0 auto;
+			}
+
+			.blog-section {
+				padding: 80px 0;
+				background-color: var(--bg-color);
+			}
+
+			.blog-card {
+				background-color: var(--card-bg);
+				border: none;
+				border-radius: 15px;
+				overflow: hidden;
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+				margin-bottom: 30px;
+			}
+
+			.blog-card:hover {
+				transform: translateY(-10px);
+				box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+			}
+
+			.blog-card .card-img-top {
+				height: 200px;
+				object-fit: cover;
+			}
+
+			.blog-card-body {
+				padding: 20px;
+			}
+
+			.blog-category {
+				padding: 5px 10px;
+				background-color: var(--primary-color);
+				color: white;
+				text-transform: uppercase;
+				font-size: 12px;
+				border-radius: 5px;
+				margin-bottom: 10px;
+			}
+
+			.blog-meta {
+				font-size: 14px;
+				color: #adb5bd;
+				margin-bottom: 10px;
+			}
+
+			.blog-sidebar {
+				background-color: var(--card-bg);
+				padding: 30px;
+				border-radius: 15px;
+			}
+			.blog-sidebar .list-unstyled li a {
+				color: var(--text-color);
+				text-decoration: none;
+			}
+
+			.blog-sidebar .list-unstyled li .post-date {
+				/* Target the .post-date span */
+				color: var(--text-color);
+				opacity: 0.7;
+				font-size: 0.8rem; /* Adjust font size if needed */
+			}
+
+			.card {
+				background-color: var(--card-bg);
+				border: none;
+				margin-bottom: 20px;
+			}
+
+			.card-title {
+				color: var(--text-color);
+			}
+
+			.category-list li a {
+				color: var(--text-color);
+			}
+
+			.tag-cloud {
+				display: flex;
+				flex-wrap: wrap;
+			}
+
+			.tag-cloud a {
+				background-color: #ced4da; /* Slightly darker gray for better contrast in light mode */
+				color: var(--text-color);
+				padding: 5px 10px;
+				margin: 5px;
+				border-radius: 5px;
+				display: inline-block;
+				text-decoration: none;
+			}
+
+			.dark-mode .tag-cloud a {
+				background-color: #343a40; /* Darker background for dark mode */
+				color: #f8f9fa; /* Light text for dark mode */
+			}
+
+			.blog-sidebar .list-unstyled li a {
+				color: var(--text-color);
+				text-decoration: none;
+			}
+
+			.blog-sidebar .list-unstyled li small.text-muted {
+				/* Target <small> with text-muted */
+				color: var(--text-color);
+				opacity: 0.7;
+			}
+			.footer {
+				background-color: #333;
+				color: white;
+				padding: 20px 0;
+				text-align: center;
+			}
+
+			.social-icons a {
+				color: white;
+				font-size: 20px;
+				margin: 0 10px;
+			}
+
+			.scroll-to-top {
+				position: fixed;
+				bottom: 20px;
+				right: 20px;
+				display: none;
+				background-color: var(--primary-color);
+				color: white;
+				padding: 10px 15px;
+				border-radius: 50%;
+				z-index: 1000;
+				transition: opacity 0.3s ease;
+			}
+
+			.scroll-to-top.active {
+				display: block;
+			}
+
+			.scroll-to-top:hover {
+				opacity: 0.8;
+			}
+
+			.theme-switch-wrapper {
+				display: flex;
+				align-items: center;
+			}
+
+			.theme-switch {
+				display: inline-block;
+				height: 34px;
+				position: relative;
+				width: 60px;
+			}
+
+			.theme-switch input {
+				display: none;
+			}
+
+			.slider {
+				background-color: #ccc;
+				bottom: 0;
+				cursor: pointer;
+				left: 0;
+				position: absolute;
+				right: 0;
+				top: 0;
+				transition: 0.4s;
+				border-radius: 34px;
+			}
+
+			.slider:before {
+				background-color: #fff;
+				bottom: 4px;
+				content: "";
+				height: 26px;
+				left: 4px;
+				position: absolute;
+				transition: 0.4s;
+				width: 26px;
+				border-radius: 50%;
+			}
+
+			input:checked + .slider {
+				background-color: #2196f3;
+			}
+
+			input:checked + .slider:before {
+				transform: translateX(26px);
+			}
+
+			.slider .icon {
+				color: #f39c12;
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				transition: opacity 0.3s ease;
+				font-size: 18px;
+			}
+
+			.slider .sun {
+				left: 6px;
+			}
+
+			.slider .moon {
+				right: 6px;
+				opacity: 0;
+			}
+
+			input:checked + .slider .sun {
+				opacity: 0;
+			}
+
+			input:checked + .slider .moon {
+				opacity: 1;
+			}
+
+			/* Additional styles */
+			.post-title {
+				margin-bottom: 10px;
+			}
+
+			.pagination .page-link {
+				background-color: transparent;
+				color: var(--text-color);
+				border: 1px solid var(--text-color);
+			}
+
+			.pagination .page-link:hover,
+			.pagination .page-link:focus {
+				color: var(--link-color);
+				border-color: var(--link-color);
+			}
+
+			.pagination .page-item.active .page-link {
+				background-color: var(--link-color);
+				border-color: var(--link-color);
+				color: white;
+			}
+
+			.btn-outline-light {
+				color: var(--text-color);
+				border-color: var(--text-color);
+			}
+
+			.btn-outline-light:hover {
+				color: var(--bg-color);
+				background-color: var(--text-color);
+				border-color: var(--text-color);
+			}
+
+			.search-form .input-group {
+				position: relative;
+			}
+
+			.search-form .btn {
+				position: absolute;
+				right: 0;
+				top: 0;
+				border-radius: 0 5px 5px 0;
+			}
+		</style>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+			<div class="container">
+				<a class="navbar-brand" href="#">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24"
+						width="40"
+						height="40"
+						class="d-inline-block align-top me-2"
+					>
+						<defs>
+							<linearGradient
+								id="bgGradient"
+								x1="0%"
+								y1="0%"
+								x2="100%"
+								y2="100%"
+							>
+								<stop
+									offset="0%"
+									style="stop-color: #45a049; stop-opacity: 1"
+								/>
+								<stop
+									offset="100%"
+									style="stop-color: #4caf50; stop-opacity: 1"
+								/>
+							</linearGradient>
+						</defs>
+						<rect
+							x="1"
+							y="1"
+							width="22"
+							height="22"
+							rx="4"
+							fill="url(#bgGradient)"
+						/>
+						<path
+							d="M5,6 h3 a1,1 0 0 1 1,1 v10 a1,1 0 0 1 -1,1 h-3 a1,1 0 0 1 -1,-1 v-10 a1,1 0 0 1 1,-1 z 
+                     M16,6 h3 a1,1 0 0 1 1,1 v10 a1,1 0 0 1 -1,1 h-3 a1,1 0 0 1 -1,-1 v-10 a1,1 0 0 1 1,-1 z 
+                     M8,10 h8 a1,1 0 0 1 1,1 v2 a1,1 0 0 1 -1,1 h-8 a1,1 0 0 1 -1,-1 v-2 a1,1 0 0 1 1,-1 z"
+							fill="#ffffff"
+						/>
+						<path
+							d="M5,7 h3 v10 h-3 v-10 z M16,7 h3 v10 h-3 v-10 z M8,11 h8 v2 h-8 v-2 z"
+							fill="#e6e6e6"
+							opacity="0.3"
+						/>
+					</svg>
+					FitConnect
+				</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarNav"
+					aria-controls="navbarNav"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav ms-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="index.html">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="about.html">About</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="blog.html"
+								>Blog</a
+							>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="pricing.html">Pricing</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="contact.html">Contact</a>
+						</li>
+						<li class="nav-item">
+							<div class="theme-switch-wrapper">
+								<label class="theme-switch" for="checkbox">
+									<input type="checkbox" id="checkbox" />
+									<div class="slider">
+										<i class="fas fa-sun icon sun"></i>
+										<i class="fas fa-moon icon moon"></i>
+									</div>
+								</label>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<header class="hero-section text-center">
+			<div class="container">
+				<h1 class="display-4 mb-4" data-aos="fade-up">FitConnect Blog</h1>
+				<p class="lead mb-5" data-aos="fade-up" data-aos-delay="100">
+					Stay informed, motivated, and inspired on your fitness journey
+				</p>
+			</div>
+		</header>
+
+		<section class="blog-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8">
+						<div class="row">
+							<div class="col-md-6 mb-4" data-aos="fade-up">
+								<div class="blog-card h-100">
+									<div class="card-body">
+										<span class="badge blog-category">NUTRITION</span>
+										<h3 class="card-title post-title">
+											The Ultimate Guide to Meal Prepping
+										</h3>
+										<p class="blog-meta">
+											<i class="far fa-calendar-alt me-2"></i>May 15, 2024
+											<i class="far fa-user ms-3 me-2"></i>By John Doe
+										</p>
+										<p class="card-text">
+											Learn how to save time and stay on track with your
+											nutrition goals through effective meal prepping
+											strategies.
+										</p>
+										<a href="#" class="btn btn-primary btn-sm">Read More</a>
+									</div>
+								</div>
+							</div>
+							<div
+								class="col-md-6 mb-4"
+								data-aos="fade-up"
+								data-aos-delay="100"
+							>
+								<div class="blog-card h-100">
+									<div class="card-body">
+										<span class="badge blog-category">WORKOUTS</span>
+										<h3 class="card-title post-title">
+											5 Yoga Poses for Better Flexibility
+										</h3>
+										<p class="blog-meta">
+											<i class="far fa-calendar-alt me-2"></i>May 12, 2024
+											<i class="far fa-user ms-3 me-2"></i>By Jane Smith
+										</p>
+										<p class="card-text">
+											Improve your flexibility and reduce muscle tension with
+											these beginner-friendly yoga poses.
+										</p>
+										<a href="#" class="btn btn-primary btn-sm">Read More</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 mb-4" data-aos="fade-up">
+								<div class="blog-card h-100">
+									<div class="card-body">
+										<span class="badge blog-category">MENTAL HEALTH</span>
+										<h3 class="card-title post-title">
+											The Connection Between Exercise and Mental Health
+										</h3>
+										<p class="blog-meta">
+											<i class="far fa-calendar-alt me-2"></i>May 8, 2024
+											<i class="far fa-user ms-3 me-2"></i>By Dr. Emily Johnson
+										</p>
+										<p class="card-text">
+											Discover how regular physical activity can boost your
+											mood, reduce stress, and improve overall mental
+											well-being.
+										</p>
+										<a href="#" class="btn btn-primary btn-sm">Read More</a>
+									</div>
+								</div>
+							</div>
+							<div
+								class="col-md-6 mb-4"
+								data-aos="fade-up"
+								data-aos-delay="100"
+							>
+								<div class="blog-card h-100">
+									<div class="card-body">
+										<span class="badge blog-category">MOTIVATION</span>
+										<h3 class="card-title post-title">
+											5 Strategies to Stay Motivated on Your Fitness Journey
+										</h3>
+										<p class="blog-meta">
+											<i class="far fa-calendar-alt me-2"></i>May 5, 2024
+											<i class="far fa-user ms-3 me-2"></i>By Michael Brown
+										</p>
+										<p class="card-text">
+											Learn practical tips to maintain your motivation and
+											overcome obstacles in your fitness journey.
+										</p>
+										<a href="#" class="btn btn-primary btn-sm">Read More</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<nav aria-label="Blog pagination" class="mt-4">
+							<ul class="pagination justify-content-center">
+								<li class="page-item disabled">
+									<a
+										class="page-link"
+										href="#"
+										tabindex="-1"
+										aria-disabled="true"
+										>Previous</a
+									>
+								</li>
+								<li class="page-item active" aria-current="page">
+									<a class="page-link" href="#">1</a>
+								</li>
+								<li class="page-item"><a class="page-link" href="#">2</a></li>
+								<li class="page-item"><a class="page-link" href="#">3</a></li>
+								<li class="page-item">
+									<a class="page-link" href="#">Next</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+					<div class="col-lg-4">
+						<aside class="blog-sidebar">
+							<div class="card mb-4" data-aos="fade-left">
+								<div class="card-body">
+									<h4 class="card-title">Search</h4>
+									<form class="search-form">
+										<div class="input-group">
+											<input
+												type="text"
+												class="form-control"
+												placeholder="Search blog posts..."
+											/>
+											<button class="btn btn-primary" type="submit">
+												<i class="fas fa-search"></i>
+											</button>
+										</div>
+									</form>
+								</div>
+							</div>
+							<div class="card mb-4" data-aos="fade-left" data-aos-delay="100">
+								<div class="card-body">
+									<h4 class="card-title">Categories</h4>
+									<ul class="category-list list-unstyled">
+										<li>
+											<a href="#"
+												>Workouts
+												<span class="badge bg-primary float-end">12</span></a
+											>
+										</li>
+										<li>
+											<a href="#"
+												>Nutrition
+												<span class="badge bg-primary float-end">8</span></a
+											>
+										</li>
+										<li>
+											<a href="#"
+												>Mental Health
+												<span class="badge bg-primary float-end">5</span></a
+											>
+										</li>
+										<li>
+											<a href="#"
+												>Motivation
+												<span class="badge bg-primary float-end">7</span></a
+											>
+										</li>
+										<li>
+											<a href="#"
+												>Equipment
+												<span class="badge bg-primary float-end">4</span></a
+											>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="card mb-4" data-aos="fade-left" data-aos-delay="200">
+								<div class="card-body">
+									<h4 class="card-title">Recent Posts</h4>
+									<ul class="list-unstyled">
+										<li class="mb-3">
+											<a href="#" class="text-decoration-none"
+												>The Benefits of Morning Workouts</a
+											>
+											<br />
+											<span class="post-date">May 1, 2024</span> <br />
+										</li>
+										<li class="mb-3">
+											<a href="#" class="text-decoration-none"
+												>Healthy Snacks for Pre and Post Workout</a
+											>
+											<br />
+											<span class="post-date">April 28, 2024</span> <br />
+										</li>
+										<li>
+											<a href="#" class="text-decoration-none"
+												>How to Choose the Right Running Shoes</a
+											>
+											<br />
+											<span class="post-date">April 25, 2024</span> <br />
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="card" data-aos="fade-left" data-aos-delay="300">
+								<div class="card-body">
+									<h4 class="card-title">Tags</h4>
+									<div class="tag-cloud">
+										<a href="#" class="tag">Fitness</a>
+										<a href="#" class="tag">Nutrition</a>
+										<a href="#" class="tag">Weightloss</a>
+										<a href="#" class="tag">Yoga</a>
+										<a href="#" class="tag">Cardio</a>
+										<a href="#" class="tag">Strength</a>
+										<a href="#" class="tag">Meditation</a>
+										<a href="#" class="tag">Wellness</a>
+									</div>
+								</div>
+							</div>
+						</aside>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<footer class="bg-dark text-white py-5">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4 mb-4 mb-md-0">
+						<h5>FitConnect</h5>
+						<p>
+							Empowering your fitness journey with expert guidance and community
+							support.
+						</p>
+						<div class="social-icons">
+							<a href="#" class="text-white me-2"
+								><i class="fab fa-facebook-f"></i
+							></a>
+							<a href="#" class="text-white me-2"
+								><i class="fab fa-twitter"></i
+							></a>
+							<a href="#" class="text-white me-2"
+								><i class="fab fa-instagram"></i
+							></a>
+							<a href="#" class="text-white"
+								><i class="fab fa-linkedin-in"></i
+							></a>
+						</div>
+					</div>
+					<div class="col-md-4 mb-4 mb-md-0">
+						<h5>Quick Links</h5>
+						<ul class="list-unstyled">
+							<li><a href="index.html" class="text-white">Home</a></li>
+							<li><a href="about.html" class="text-white">About Us</a></li>
+							<li><a href="#" class="text-white">Blog</a></li>
+							<li><a href="#contact" class="text-white">Contact</a></li>
+						</ul>
+					</div>
+					<div class="col-md-4">
+						<h5>Contact Us</h5>
+						<address>
+							<p>
+								<i class="fas fa-map-marker-alt me-2"></i>123 Fitness Street,
+								Healthy City, FC 12345
+							</p>
+							<p><i class="fas fa-phone me-2"></i>(123) 456-7890</p>
+							<p><i class="fas fa-envelope me-2"></i>info@fitconnect.com</p>
+						</address>
+					</div>
+				</div>
+				<hr class="my-4" />
+				<div class="row">
+					<div class="col-md-6 text-center text-md-start">
+						<p>© 2024 FitConnect. All rights reserved.</p>
+					</div>
+					<div class="col-md-6 text-center text-md-end">
+						<a href="terms.html" class="text-white me-3">Terms of Service</a>
+						<a href="privacy.html" class="text-white">Privacy Policy</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<a href="#" class="scroll-to-top" id="scrollToTop">
+			<i class="fas fa-chevron-up"></i>
+		</a>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+		<script>
+			// Initialize AOS
+			AOS.init({
+				duration: 1000,
+				once: true,
+			});
+
+			// Theme toggle
+			const toggleSwitch = document.querySelector(
+				'.theme-switch input[type="checkbox"]'
+			);
+			const currentTheme = localStorage.getItem("theme");
+
+			if (currentTheme) {
+				document.documentElement.setAttribute("data-theme", currentTheme);
+				if (currentTheme === "dark") {
+					toggleSwitch.checked = true;
+					document.body.classList.add("dark-mode");
+				}
+			}
+
+			function switchTheme(e) {
+				if (e.target.checked) {
+					document.documentElement.setAttribute("data-theme", "dark");
+					document.body.classList.add("dark-mode");
+					localStorage.setItem("theme", "dark");
+				} else {
+					document.documentElement.setAttribute("data-theme", "light");
+					document.body.classList.remove("dark-mode");
+					localStorage.setItem("theme", "light");
+				}
+			}
+
+			toggleSwitch.addEventListener("change", switchTheme, false);
+
+			// Scroll to top button
+			const scrollToTopBtn = document.getElementById("scrollToTop");
+
+			window.addEventListener("scroll", () => {
+				if (window.pageYOffset > 100) {
+					scrollToTopBtn.classList.add("active");
+				} else {
+					scrollToTopBtn.classList.remove("active");
+				}
+			});
+
+			scrollToTopBtn.addEventListener("click", (e) => {
+				e.preventDefault();
+				window.scrollTo({ top: 0, behavior: "smooth" });
+			});
+
+			// Add smooth scrolling to all links
+			document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+				anchor.addEventListener("click", function (e) {
+					e.preventDefault();
+
+					document.querySelector(this.getAttribute("href")).scrollIntoView({
+						behavior: "smooth",
+					});
+				});
+			});
+		</script>
+	</body>
 </html>
